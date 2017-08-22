@@ -4,3 +4,9 @@ C:\Users\Joshua French\Documents\Visual Studio 2017\Projects\StarCommander\StarC
 C:\Users\Joshua French\Documents\Visual Studio 2017\Projects\StarCommander\StarCommander\obj\Debug\StarCommander.csproj.CoreCompileInputs.cache
 C:\Users\Joshua French\Documents\Visual Studio 2017\Projects\StarCommander\StarCommander\obj\Debug\StarCommander.dll
 C:\Users\Joshua French\Documents\Visual Studio 2017\Projects\StarCommander\StarCommander\obj\Debug\StarCommander.pdb
+C:\Users\Joshua French\Source\Repos\Star-Commander-Resume-Sample\StarCommander\bin\Debug\StarCommander.dll
+C:\Users\Joshua French\Source\Repos\Star-Commander-Resume-Sample\StarCommander\bin\Debug\StarCommander.pdb
+C:\Users\Joshua French\Source\Repos\Star-Commander-Resume-Sample\StarCommander\obj\Debug\StarCommander.csprojResolveAssemblyReference.cache
+C:\Users\Joshua French\Source\Repos\Star-Commander-Resume-Sample\StarCommander\obj\Debug\StarCommander.csproj.CoreCompileInputs.cache
+C:\Users\Joshua French\Source\Repos\Star-Commander-Resume-Sample\StarCommander\obj\Debug\StarCommander.dll
+C:\Users\Joshua French\Source\Repos\Star-Commander-Resume-Sample\StarCommander\obj\Debug\StarCommander.pdb

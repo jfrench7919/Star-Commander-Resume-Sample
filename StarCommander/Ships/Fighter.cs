@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StarCommander
+namespace StarCommander.Ships
 {
-    public interface IStarShip
+    class Fighter : StarShip
     {
-        void Advance();
-        void Retreat();
-        void Attack();
     }
 }

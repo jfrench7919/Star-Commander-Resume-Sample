@@ -1,12 +1,12 @@
 ﻿using Xunit;
-using StarCommander;
+using StarCommander.Ships;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StarCommander.Tests
+namespace StarCommander.Ships.Tests
 {
     public class StarShipTests
     {
@@ -17,13 +17,13 @@ namespace StarCommander.Tests
         }
 
         [Fact()]
-        public void AttackTest()
+        public void RetreatTest()
         {
             Assert.True(false, "This test needs an implementation");
         }
 
         [Fact()]
-        public void RetreatTest()
+        public void AttackTest()
         {
             Assert.True(false, "This test needs an implementation");
         }

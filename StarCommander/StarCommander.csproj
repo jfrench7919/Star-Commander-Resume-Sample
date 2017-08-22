@@ -40,9 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IStarShip.cs" />
+    <Compile Include="Ships\Destroyer.cs" />
+    <Compile Include="Ships\Figet.cs" />
+    <Compile Include="Ships\Fighter.cs" />
+    <Compile Include="Ships\IStarShip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StarShip.cs" />
+    <Compile Include="Ships\StarShip.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
