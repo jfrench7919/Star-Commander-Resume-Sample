@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace StarCommander.Ships
 {
-    class Fighter : StarShip
+    public class Fighter : StarShip
     {
+        public Fighter()
+        {
+
+        }
     }
 }

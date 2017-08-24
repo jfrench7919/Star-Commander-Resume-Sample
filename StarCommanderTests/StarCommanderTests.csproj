@@ -62,7 +62,18 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Factories\AttackImplementFactoryTests.cs" />
+    <Compile Include="Factories\DefendImplementFactoryTests.cs" />
+    <Compile Include="Factories\ShipFactoryTests.cs" />
+    <Compile Include="Factories\UpgradeImplementFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShipDecorator\AttackImplement\LaserTests.cs" />
+    <Compile Include="ShipDecorator\AttackImplement\MissileTests.cs" />
+    <Compile Include="ShipDecorator\AttackImplement\PhotonTorpedoTests.cs" />
+    <Compile Include="ShipDecorator\AttackImplement\PlasmaCannonTests.cs" />
+    <Compile Include="Ships\DestroyerTests.cs" />
+    <Compile Include="Ships\FrigetTests.cs" />
+    <Compile Include="Ships\FighterTests.cs" />
     <Compile Include="Ships\StarShipTests.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,5 @@
+C:\Users\Joshua French\Source\Repos\Star-Commander-Resume-Sample\.vs\StarCommander\lut\0\b\StarCommander\bin\Debug\StarCommander.dll
+C:\Users\Joshua French\Source\Repos\Star-Commander-Resume-Sample\.vs\StarCommander\lut\0\b\StarCommander\bin\Debug\StarCommander.pdb
+C:\Users\Joshua French\Source\Repos\Star-Commander-Resume-Sample\.vs\StarCommander\lut\0\i\StarCommander\Debug\StarCommander.csproj.CoreCompileInputs.cache
+C:\Users\Joshua French\Source\Repos\Star-Commander-Resume-Sample\.vs\StarCommander\lut\0\i\StarCommander\Debug\StarCommander.dll
+C:\Users\Joshua French\Source\Repos\Star-Commander-Resume-Sample\.vs\StarCommander\lut\0\i\StarCommander\Debug\StarCommander.pdb

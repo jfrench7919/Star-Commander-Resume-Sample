@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StarCommander.Ships
+namespace StarCommander.ShipDecorator.DefendImplement
 {
-    class Figet : StarShip
+    public abstract class DefendImplement : IDefendImplement
     {
     }
 }

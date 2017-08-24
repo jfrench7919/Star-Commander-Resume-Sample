@@ -40,17 +40,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factories\AttackImplementFactory.cs" />
+    <Compile Include="Factories\DefendImplementFactory.cs" />
+    <Compile Include="Factories\UpgradeImplementFactory.cs" />
+    <Compile Include="Factories\ShipFactory.cs" />
+    <Compile Include="ShipDecorator\AttackImplement\AttackImplement.cs" />
+    <Compile Include="ShipDecorator\AttackImplement\IAttackImplement.cs" />
+    <Compile Include="ShipDecorator\AttackImplement\Laser.cs" />
+    <Compile Include="ShipDecorator\AttackImplement\Missile.cs" />
+    <Compile Include="ShipDecorator\AttackImplement\PhotonTorpedo.cs" />
+    <Compile Include="ShipDecorator\AttackImplement\PlasmaCannon.cs" />
+    <Compile Include="ShipDecorator\DefendImplement\DefendImplement.cs" />
+    <Compile Include="ShipDecorator\DefendImplement\IDefendImplement.cs" />
+    <Compile Include="ShipDecorator\UpgradeImplement\UpgradeImplement.cs" />
+    <Compile Include="ShipDecorator\UpgradeImplement\IUpgradeImplement.cs" />
     <Compile Include="Ships\Destroyer.cs" />
-    <Compile Include="Ships\Figet.cs" />
+    <Compile Include="Ships\Friget.cs" />
     <Compile Include="Ships\Fighter.cs" />
     <Compile Include="Ships\IStarShip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ships\StarShip.cs" />
+    <Compile Include="Types\UpgradeImplementType.cs" />
+    <Compile Include="Types\DefendImplementType.cs" />
+    <Compile Include="Types\AttackImplementType.cs" />
+    <Compile Include="Types\ShipType.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Factories\" />
     <Folder Include="Observers\" />
-    <Folder Include="ShipDecorator\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
