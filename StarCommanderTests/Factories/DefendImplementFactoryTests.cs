@@ -1,5 +1,7 @@
 ﻿using Xunit;
 using StarCommander.Factories;
+using StarCommander.Types;
+using StarCommander.DefendImplement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +13,27 @@ namespace StarCommander.Factories.Tests
     public class DefendImplementFactoryTests
     {
         [Fact()]
-        public void CreateDefendImplementTest()
+        public void CreatDeflectionShieldImplementTest()
         {
-            Assert.True(false, "This test needs an implementation");
+            Assert.IsType<DeflectionShieldImplement>(DefendImplementFactory.CreateDefendImplement(DefendImplementType.DeflectionShield));
+        }
+
+        [Fact()]
+        public void CreatePolarizedPlatingImplementTest()
+        {
+            Assert.IsType<PolarizedPlatingImplement>(DefendImplementFactory.CreateDefendImplement(DefendImplementType.PolarizedPlating));
+        }
+
+        [Fact()]
+        public void CreateShieldBoosterImplementTest()
+        {
+            Assert.IsType<ShieldBoosterImplement>(DefendImplementFactory.CreateDefendImplement(DefendImplementType.ShieldBooster));
+        }
+
+        [Fact()]
+        public void CreateDefendImplementNullTest()
+        {
+            Assert.Equal(null, DefendImplementFactory.CreateDefendImplement(null));
         }
     }
 }

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StarCommander.ShipDecorator.DefendImplement
+namespace StarCommander.AttackImplement
 {
-    public abstract class DefendImplement : IDefendImplement
+    public interface IAttackImplement
     {
+        int Power { get; set; }
+
     }
 }

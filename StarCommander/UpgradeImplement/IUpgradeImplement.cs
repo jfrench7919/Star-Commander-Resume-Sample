@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StarCommander.ShipDecorator.DefendImplement
+namespace StarCommander.UpgradeImplement
 {
-    public interface IDefendImplement
+    public interface IUpgradeImplement
     {
     }
 }

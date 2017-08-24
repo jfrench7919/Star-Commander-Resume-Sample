@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StarCommander.Ships;
 using StarCommander.Types;
-using StarCommander.ShipDecorator.DefendImplement;
+using StarCommander.DefendImplement;
 
 namespace StarCommander.Factories
 {
@@ -13,17 +13,38 @@ namespace StarCommander.Factories
     {
         public static IDefendImplement CreateDefendImplement(Nullable<DefendImplementType> type)
         {
-            switch(type)
+            switch (type)
             {
                 case DefendImplementType.DeflectionShield:
-                    return null;
+                    var deflectionShield = new DeflectionShieldImplement();
+                    SetDeflectionShieldDefaultValues(deflectionShield);
+                    return deflectionShield;
                 case DefendImplementType.PolarizedPlating:
-                    return null;
+                    var polarizedPlating = new PolarizedPlatingImplement();
+                    SetPolarizedPlatingDefaultValues(polarizedPlating);
+                    return polarizedPlating;
                 case DefendImplementType.ShieldBooster:
-                    return null;
+                    var shieldBooster = new ShieldBoosterImplement();
+                    SetShieldBoosterDefaultValues(shieldBooster);
+                    return shieldBooster;
                 default:
                     return null;
             }
+        }
+
+        private static void SetDeflectionShieldDefaultValues(IDefendImplement defendImplement)
+        {
+            defendImplement.Power = 60;
+        }
+
+        private static void SetPolarizedPlatingDefaultValues(IDefendImplement defendImplement)
+        {
+            defendImplement.Power = 100;
+        }
+
+        private static void SetShieldBoosterDefaultValues(IDefendImplement defendImplement)
+        {
+            defendImplement.Power = 40;
         }
     }
 }

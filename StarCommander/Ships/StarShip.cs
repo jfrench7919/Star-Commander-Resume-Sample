@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StarCommander.ShipDecorator.AttackImplement;
-using StarCommander.ShipDecorator.DefendImplement;
-using StarCommander.ShipDecorator.UpgradeImplement;
+using StarCommander.AttackImplement;
+using StarCommander.DefendImplement;
+using StarCommander.UpgradeImplement;
 
 namespace StarCommander.Ships
 {

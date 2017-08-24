@@ -1,17 +1,17 @@
 ﻿using Xunit;
-using StarCommander.ShipDecorator.AttackImplement;
+using StarCommander.ShipDecorator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StarCommander.ShipDecorator.AttackImplement.Tests
+namespace StarCommander.ShipDecorator.Tests
 {
-    public class PhotonTorpedoTests
+    public class DefendImplementDecoratorTests
     {
         [Fact()]
-        public void PhotonTorpedoTest()
+        public void DefendImplementDecoratorTest()
         {
             Assert.True(false, "This test needs an implementation");
         }

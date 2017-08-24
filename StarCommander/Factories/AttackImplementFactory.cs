@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StarCommander.Ships;
 using StarCommander.Types;
-using StarCommander.ShipDecorator.AttackImplement;
+using StarCommander.AttackImplement;
 
 namespace StarCommander.Factories
 {
@@ -16,16 +16,44 @@ namespace StarCommander.Factories
             switch(type)
             {
                 case AttackImplementType.Laser:
-                    return null;
+                    var laser = new LaserImplement();
+                    SetLaserDefaultValues(laser);
+                    return laser;
                 case AttackImplementType.Missile:
-                    return null;
+                    var missile = new MissileImplement();
+                    SetMissileDefaultValues(missile);
+                    return missile;
                 case AttackImplementType.PhotonTorpedo:
-                    return null;
+                    var photonTorpedo = new PhotonTorpedoImplement();
+                    SetPhotonTorpedoDefaultValues(photonTorpedo);
+                    return photonTorpedo;
                 case AttackImplementType.PlasmaCannon:
-                    return null;
+                    var plasmaCannon = new PlasmaCannonImplement();
+                    SetPlasmaCannonDefaultValues(plasmaCannon);
+                    return plasmaCannon;
                 default:
                     return null;
             }
+        }
+
+        private static void SetLaserDefaultValues(IAttackImplement attackImplement)
+        {
+            attackImplement.Power = 2;
+        }
+
+        private static void SetMissileDefaultValues(IAttackImplement attackImplement)
+        {
+            attackImplement.Power = 4;
+        }
+
+        private static void SetPhotonTorpedoDefaultValues(IAttackImplement attackImplement)
+        {
+            attackImplement.Power = 8;
+        }
+
+        private static void SetPlasmaCannonDefaultValues(IAttackImplement attackImplement)
+        {
+            attackImplement.Power =6;
         }
     }
 }

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StarCommander.ShipDecorator.AttackImplement
+namespace StarCommander.ShipDecorator
 {
-    public class Missile : AttackImplement
+    public class AttackImplementDecorator
     {
-        public Missile()
+        public AttackImplementDecorator()
         {
 
         }

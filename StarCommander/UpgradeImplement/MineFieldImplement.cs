@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StarCommander.ShipDecorator.AttackImplement
+namespace StarCommander.UpgradeImplement
 {
-    public class PlasmaCannon : AttackImplement
+    public class MineFieldImplement : UpgradeImplement
     {
-        public PlasmaCannon()
+        public MineFieldImplement()
         {
 
         }
