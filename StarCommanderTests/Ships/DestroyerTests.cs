@@ -37,7 +37,7 @@ namespace StarCommander.Ships.Tests
         public void DestroyerSizeBaseValueTest()
         {
             IStarShip ship = ShipFactory.CreateShip(ShipType.Destroyer);
-            Assert.Equal(90, ship.Size);
+            Assert.Equal(2000, ship.Size);
         }
 
         [Fact()]
@@ -45,6 +45,48 @@ namespace StarCommander.Ships.Tests
         {
             IStarShip ship = ShipFactory.CreateShip(ShipType.Destroyer);
             Assert.Equal(100, ship.Health);
+        }
+
+        [Fact()]
+        public void DestroyerNumberOfAttackSlotsBaseValueTest()
+        {
+            IStarShip ship = ShipFactory.CreateShip(ShipType.Destroyer);
+            Assert.Equal(150, ship.NumberOfAttackSlots);
+        }
+
+        [Fact()]
+        public void DestroyerNumberOfDefendSlotsBaseValueTest()
+        {
+            IStarShip ship = ShipFactory.CreateShip(ShipType.Destroyer);
+            Assert.Equal(50, ship.NumberOfDefendSlots);
+        }
+
+        [Fact()]
+        public void DestroyerNumberOfUpgradeSlotsBaseValueTest()
+        {
+            IStarShip ship = ShipFactory.CreateShip(ShipType.Destroyer);
+            Assert.Equal(20, ship.NumberOfUpgradeSlots);
+        }
+
+        [Fact()]
+        public void DestroyerNumberOfAttackSlotsAvailableBaseValueTest()
+        {
+            IStarShip ship = ShipFactory.CreateShip(ShipType.Destroyer);
+            Assert.Equal(150, ship.NumberOfAttackSlotsAvailable);
+        }
+
+        [Fact()]
+        public void DestroyerNumberOfDefendSlotsAvailableBaseValueTest()
+        {
+            IStarShip ship = ShipFactory.CreateShip(ShipType.Destroyer);
+            Assert.Equal(50, ship.NumberOfDefendSlotsAvailable);
+        }
+
+        [Fact()]
+        public void DestroyerNumberOfUpgradeSlotsAvailableBaseValueTest()
+        {
+            IStarShip ship = ShipFactory.CreateShip(ShipType.Destroyer);
+            Assert.Equal(20, ship.NumberOfUpgradeSlotsAvailable);
         }
     }
 }

@@ -16,14 +16,14 @@ namespace StarCommander.Ships.Tests
         public void FrigetPowerBaseValueTest()
         {
             IStarShip ship = ShipFactory.CreateShip(ShipType.Friget);
-            Assert.Equal(60, ship.Power);
+            Assert.Equal(70, ship.Power);
         }
 
         [Fact()]
         public void FrigetSpeedBaseValueTest()
         {
             IStarShip ship = ShipFactory.CreateShip(ShipType.Friget);
-            Assert.Equal(20, ship.Speed);
+            Assert.Equal(30, ship.Speed);
         }
 
         [Fact()]
@@ -37,7 +37,7 @@ namespace StarCommander.Ships.Tests
         public void FrigetSizeBaseValueTest()
         {
             IStarShip ship = ShipFactory.CreateShip(ShipType.Friget);
-            Assert.Equal(40, ship.Size);
+            Assert.Equal(500, ship.Size);
         }
 
         [Fact()]
@@ -45,6 +45,48 @@ namespace StarCommander.Ships.Tests
         {
             IStarShip ship = ShipFactory.CreateShip(ShipType.Friget);
             Assert.Equal(100, ship.Health);
+        }
+
+        [Fact()]
+        public void FrigetNumberOfAttackSlotsBaseValueTest()
+        {
+            IStarShip ship = ShipFactory.CreateShip(ShipType.Friget);
+            Assert.Equal(40, ship.NumberOfAttackSlots);
+        }
+
+        [Fact()]
+        public void FrigetNumberOfDefendSlotsBaseValueTest()
+        {
+            IStarShip ship = ShipFactory.CreateShip(ShipType.Friget);
+            Assert.Equal(20, ship.NumberOfDefendSlots);
+        }
+
+        [Fact()]
+        public void FrigetNumberOfUpgradeSlotsBaseValueTest()
+        {
+            IStarShip ship = ShipFactory.CreateShip(ShipType.Friget);
+            Assert.Equal(10, ship.NumberOfUpgradeSlots);
+        }
+
+        [Fact()]
+        public void FrigetNumberOfAttackSlotsAvailableBaseValueTest()
+        {
+            IStarShip ship = ShipFactory.CreateShip(ShipType.Friget);
+            Assert.Equal(40, ship.NumberOfAttackSlotsAvailable);
+        }
+
+        [Fact()]
+        public void FrigetNumberOfDefendSlotsAvailableBaseValueTest()
+        {
+            IStarShip ship = ShipFactory.CreateShip(ShipType.Friget);
+            Assert.Equal(20, ship.NumberOfDefendSlotsAvailable);
+        }
+
+        [Fact()]
+        public void FrigetNumberOfUpgradeSlotsAvailableBaseValueTest()
+        {
+            IStarShip ship = ShipFactory.CreateShip(ShipType.Friget);
+            Assert.Equal(10, ship.NumberOfUpgradeSlotsAvailable);
         }
     }
 }

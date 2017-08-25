@@ -33,23 +33,35 @@ namespace StarCommander.Factories
 
         private static void SetFighterDefaultValues(IStarShip ship)
         {
-            ship.Power = 45;
-            ship.Size = 10;
+            ship.Power = 50;
+            ship.Size = 70;
             ship.Armor = 30;
+            ship.Speed = 80;
+            ship.NumberOfAttackSlots = 15;
+            ship.NumberOfDefendSlots = 10;
+            ship.NumberOfUpgradeSlots = 5;
         }
 
         private static void SetFrigetDefaultValues(IStarShip ship)
         {
-            ship.Power = 60;
-            ship.Size = 40;
+            ship.Power = 70;
+            ship.Size = 500;
             ship.Armor = 60;
+            ship.Speed = 30;
+            ship.NumberOfAttackSlots = 40;
+            ship.NumberOfDefendSlots = 20;
+            ship.NumberOfUpgradeSlots = 10;
         }
 
         private static void SetDestroyerDefaultValues(IStarShip ship)
         {
             ship.Power = 100;
-            ship.Size = 90;
+            ship.Size = 2000;
             ship.Armor = 90;
+            ship.Speed = 10;
+            ship.NumberOfAttackSlots = 150;
+            ship.NumberOfDefendSlots = 50;
+            ship.NumberOfUpgradeSlots = 20;
         }
     }
 }

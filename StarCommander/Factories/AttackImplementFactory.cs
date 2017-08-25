@@ -39,21 +39,33 @@ namespace StarCommander.Factories
         private static void SetLaserDefaultValues(IAttackImplement attackImplement)
         {
             attackImplement.Power = 2;
+            attackImplement.Health = 100;
+            attackImplement.Ammo = null;
+            attackImplement.Size = 1;
         }
 
         private static void SetMissileDefaultValues(IAttackImplement attackImplement)
         {
             attackImplement.Power = 4;
+            attackImplement.Health = 100;
+            attackImplement.Ammo = 4;
+            attackImplement.Size = 2;
         }
 
         private static void SetPhotonTorpedoDefaultValues(IAttackImplement attackImplement)
         {
             attackImplement.Power = 8;
+            attackImplement.Health = 100;
+            attackImplement.Ammo = 10;
+            attackImplement.Size = 4;
         }
 
         private static void SetPlasmaCannonDefaultValues(IAttackImplement attackImplement)
         {
-            attackImplement.Power =6;
+            attackImplement.Power = 6;
+            attackImplement.Health = 100;
+            attackImplement.Ammo = 100;
+            attackImplement.Size = 8;
         }
     }
 }

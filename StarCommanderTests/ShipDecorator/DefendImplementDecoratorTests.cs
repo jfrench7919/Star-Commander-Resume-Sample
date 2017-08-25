@@ -10,10 +10,6 @@ namespace StarCommander.ShipDecorator.Tests
 {
     public class DefendImplementDecoratorTests
     {
-        [Fact()]
-        public void DefendImplementDecoratorTest()
-        {
-            Assert.True(false, "This test needs an implementation");
-        }
+        
     }
 }

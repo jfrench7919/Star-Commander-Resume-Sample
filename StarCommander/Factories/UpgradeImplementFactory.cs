@@ -34,14 +34,23 @@ namespace StarCommander.Factories
 
         private static void SetMetalicMicrobesDefaultValues(IUpgradeImplement upgradeImplement)
         {
+            upgradeImplement.Power = 15;
+            upgradeImplement.Size = 10;
+            upgradeImplement.Health = 100;
         }
 
         private static void SetMineFieldDefaultValues(IUpgradeImplement upgradeImplement)
         {
+            upgradeImplement.Power = 25;
+            upgradeImplement.Size = 25;
+            upgradeImplement.Health = 100;
         }
 
         private static void SetWarpDriveDefaultValues(IUpgradeImplement upgradeImplement)
         {
+            upgradeImplement.Power = 10;
+            upgradeImplement.Size = 5;
+            upgradeImplement.Health = 100;
         }
     }
 }

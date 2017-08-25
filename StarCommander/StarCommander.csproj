@@ -58,6 +58,7 @@
     <Compile Include="DefendImplement\ShieldBoosterImplement.cs" />
     <Compile Include="DefendImplement\DefendImplement.cs" />
     <Compile Include="DefendImplement\IDefendImplement.cs" />
+    <Compile Include="Implement\IImplement.cs" />
     <Compile Include="UpgradeImplement\MetalicMicrobesImplement.cs" />
     <Compile Include="UpgradeImplement\MineFieldImplement.cs" />
     <Compile Include="UpgradeImplement\WarpDriveImplement.cs" />

@@ -18,5 +18,63 @@ namespace StarCommander.AttackImplement.Tests
             IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PhotonTorpedo);
             Assert.Equal(8, attackImplement.Power);
         }
+
+        [Fact()]
+        public void PhotonTorpedoSizeBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PhotonTorpedo);
+            Assert.Equal(4, attackImplement.Size);
+        }
+
+        [Fact()]
+        public void PhotonTorpedoHealthBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PhotonTorpedo);
+            Assert.Equal(100, attackImplement.Health);
+        }
+
+        [Fact()]
+        public void PhotonTorpedoAmmoBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PhotonTorpedo);
+            Assert.Equal(10, attackImplement.Ammo);
+        }
+
+        [Fact()]
+        public void PhotonTorpedoAmmoAvailableTest()
+        {
+            IAttackImplement i = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PhotonTorpedo);
+            Assert.True(i.AmmoAvailable);
+        }
+
+        [Fact()]
+        public void PhotonTorpedoAmmoUnAvailableTest()
+        {
+            IAttackImplement ai = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PhotonTorpedo);
+            var shots = ai.Ammo;
+            for (int i = 0; i < shots; i++)
+            {
+                ai.Fire();
+            }
+            Assert.False(ai.AmmoAvailable);
+        }
+
+        [Fact()]
+        public void PhotonTorpedoObserverNotNullTest()
+        {
+            IAttackImplement ai = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PhotonTorpedo);
+            Assert.False(ai.EnemyShips == null);
+            Assert.Equal(0, ai.EnemyShips.Count());
+        }
+
+        [Fact()]
+        public void PhotonTorpedoObserverCountTest()
+        {
+            IAttackImplement ai = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PhotonTorpedo);
+            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter));
+            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter));
+            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter));
+            Assert.Equal(3, ai.EnemyShips.Count());
+        }
     }
 }

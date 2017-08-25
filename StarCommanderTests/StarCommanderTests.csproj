@@ -62,6 +62,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="AttackImplement\AttackImplementTests.cs" />
     <Compile Include="Factories\AttackImplementFactoryTests.cs" />
     <Compile Include="Factories\DefendImplementFactoryTests.cs" />
     <Compile Include="Factories\ShipFactoryTests.cs" />

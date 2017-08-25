@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StarCommander.Implement;
 
 namespace StarCommander.DefendImplement
 {
-    public interface IDefendImplement
+    public interface IDefendImplement : IImplement
     {
-        int Power { get; set; }
+        void Activate();
     }
 }

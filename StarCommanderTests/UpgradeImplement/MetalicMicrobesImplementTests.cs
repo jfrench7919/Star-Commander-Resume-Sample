@@ -1,5 +1,7 @@
 ﻿using Xunit;
 using StarCommander.UpgradeImplement;
+using StarCommander.Factories;
+using StarCommander.Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +13,24 @@ namespace StarCommander.UpgradeImplement.Tests
     public class MetalicMicrobesImplementTests
     {
         [Fact()]
-        public void MetalicMicrobesImplementTest()
+        public void MetalicMicrobesPowerBaseValueTest()
         {
-            Assert.True(false, "This test needs an implementation");
+            IUpgradeImplement upgradeImplement = UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.MetalicMicrobes);
+            Assert.Equal(15, upgradeImplement.Power);
+        }
+
+        [Fact()]
+        public void MetalicMicrobesSizeBaseValueTest()
+        {
+            IUpgradeImplement upgradeImplement = UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.MetalicMicrobes);
+            Assert.Equal(10, upgradeImplement.Size);
+        }
+
+        [Fact()]
+        public void MetalicMicrobesHealthBaseValueTest()
+        {
+            IUpgradeImplement upgradeImplement = UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.MetalicMicrobes);
+            Assert.Equal(100, upgradeImplement.Health);
         }
     }
 }

@@ -23,19 +23,34 @@ namespace StarCommander.Ships
         }
 
         public int Size { get ; set; }
-        public int Speed
-        {
-            get
-            {
-                return Power - Size;
-            }
-        }
+        public int Speed { get; set; }
         public int Armor { get; set; }
         public int Power { get; set; }
         public int Health { get; set; }
         public int NumberOfAttackSlots { get; set; }
         public int NumberOfDefendSlots { get; set; }
         public int NumberOfUpgradeSlots { get; set; }
+        public int NumberOfAttackSlotsAvailable
+        {
+            get
+            {
+                return NumberOfAttackSlots - AttackImplements.Sum(x => x.Size);
+            }
+        }
+        public int NumberOfDefendSlotsAvailable
+        {
+            get
+            {
+                return NumberOfDefendSlots - DefendImplements.Sum(x => x.Size);
+            }
+        }
+        public int NumberOfUpgradeSlotsAvailable
+        {
+            get
+            {
+                return NumberOfUpgradeSlots - UpgradeImplements.Sum(x => x.Size);
+            }
+        }
         public List<IAttackImplement> AttackImplements { get; set; }
         public List<IDefendImplement> DefendImplements { get; set; }
         public List<IUpgradeImplement> UpgradeImplements { get; set; }
@@ -58,6 +73,11 @@ namespace StarCommander.Ships
         public void Deffend()
         {
             throw new NotImplementedException();
+        }
+
+        public void ReceiveDamage()
+        {
+
         }
     }
 }
