@@ -42,6 +42,7 @@ namespace StarCommander.Factories
             attackImplement.Health = 100;
             attackImplement.Ammo = null;
             attackImplement.Size = 1;
+            attackImplement.ShipSpeedModification = -1;
         }
 
         private static void SetMissileDefaultValues(IAttackImplement attackImplement)
@@ -50,6 +51,7 @@ namespace StarCommander.Factories
             attackImplement.Health = 100;
             attackImplement.Ammo = 4;
             attackImplement.Size = 2;
+            attackImplement.ShipSpeedModification = -2;
         }
 
         private static void SetPhotonTorpedoDefaultValues(IAttackImplement attackImplement)
@@ -58,6 +60,7 @@ namespace StarCommander.Factories
             attackImplement.Health = 100;
             attackImplement.Ammo = 10;
             attackImplement.Size = 4;
+            attackImplement.ShipSpeedModification = -3;
         }
 
         private static void SetPlasmaCannonDefaultValues(IAttackImplement attackImplement)
@@ -66,6 +69,7 @@ namespace StarCommander.Factories
             attackImplement.Health = 100;
             attackImplement.Ammo = 100;
             attackImplement.Size = 8;
+            attackImplement.ShipSpeedModification = -4;
         }
     }
 }

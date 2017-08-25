@@ -23,7 +23,7 @@ namespace StarCommander.UpgradeImplement.Tests
         public void MineFieldSizeBaseValueTest()
         {
             IUpgradeImplement upgradeImplement = UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.MineField);
-            Assert.Equal(25, upgradeImplement.Size);
+            Assert.Equal(20, upgradeImplement.Size);
         }
 
         [Fact()]
@@ -31,6 +31,27 @@ namespace StarCommander.UpgradeImplement.Tests
         {
             IUpgradeImplement upgradeImplement = UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.MineField);
             Assert.Equal(100, upgradeImplement.Health);
+        }
+
+        [Fact()]
+        public void MineFieldShipHealthModificationBaseValueTest()
+        {
+            IUpgradeImplement upgradeImplement = UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.MineField);
+            Assert.Equal(70, upgradeImplement.ShipArmorModification);
+        }
+
+        [Fact()]
+        public void MineFieldShipPowerModificationBaseValueTest()
+        {
+            IUpgradeImplement upgradeImplement = UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.MineField);
+            Assert.Equal(0, upgradeImplement.ShipPowerModification);
+        }
+
+        [Fact()]
+        public void MineFieldShipSpeedModificationBaseValueTest()
+        {
+            IUpgradeImplement upgradeImplement = UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.MineField);
+            Assert.Equal(-20, upgradeImplement.ShipSpeedModification);
         }
     }
 }

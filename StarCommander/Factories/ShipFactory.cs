@@ -5,29 +5,56 @@ using System.Text;
 using System.Threading.Tasks;
 using StarCommander.Ships;
 using StarCommander.Types;
+using StarCommander.Implement;
+using StarCommander.ShipDecorator;
 
 namespace StarCommander.Factories
 {
     public class ShipFactory
     {
-        public static IStarShip CreateShip(Nullable<ShipType> type)
+        public static IStarShip CreateShip(Nullable<ShipType> shipType, Nullable<ShipConfigurationType> configurationType)
         {
-            switch(type)
+            switch(shipType)
             {
                 case ShipType.Fighter:
                     var fighter = new Fighter();
                     SetFighterDefaultValues(fighter);
+                    SetDecorations(fighter, shipType, configurationType);
                     return fighter;
                 case ShipType.Friget:
                     var friget = new Friget();
                     SetFrigetDefaultValues(friget);
+                    SetDecorations(friget, shipType, configurationType);
                     return friget;
                 case ShipType.Destroyer:
                     var destroyer = new Destroyer();
                     SetDestroyerDefaultValues(destroyer);
+                    SetDecorations(destroyer, shipType, configurationType);
                     return destroyer;
                 default:
                     return null;
+            }
+        }
+
+        private static void SetDecorations(IStarShip ship, ShipType? shipType, ShipConfigurationType? configurationType)
+        {
+            if (shipType != null && configurationType != null)
+            {
+                IShipConfigeration conCollection = ShipConfigerationFactory.CreateShipConfiguration(shipType, configurationType);
+                foreach (var i in conCollection.attackImplements)
+                {
+                    AttackImplementDecorator.DecorateShip(ship, i);
+                }
+
+                foreach (var i in conCollection.defendImplements)
+                {
+                    DefendImplementDecorator.DecorateShip(ship, i);
+                }
+
+                foreach (var i in conCollection.upgradeImplements)
+                {
+                    UpgradeImplementDecorator.DecorateShip(ship, i);
+                }
             }
         }
 

@@ -20,6 +20,13 @@ namespace StarCommander.AttackImplement.Tests
         }
 
         [Fact()]
+        public void MissileShipArmorModificationBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Missile);
+            Assert.Equal(0, attackImplement.ShipArmorModification);
+        }
+
+        [Fact()]
         public void MissileSizeBaseValueTest()
         {
             IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Missile);
@@ -71,10 +78,31 @@ namespace StarCommander.AttackImplement.Tests
         public void MissileObserverCountTest()
         {
             IAttackImplement ai = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Missile);
-            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter));
-            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter));
-            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter));
+            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter, null));
+            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter, null));
+            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter, null));
             Assert.Equal(3, ai.EnemyShips.Count());
+        }
+
+        [Fact()]
+        public void MissileShipHealthModificationBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Missile);
+            Assert.Equal(0, attackImplement.ShipHealthModification);
+        }
+
+        [Fact()]
+        public void MissileShipPowerModificationBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Missile);
+            Assert.Equal(0, attackImplement.ShipPowerModification);
+        }
+
+        [Fact()]
+        public void MissileShipSpeedModificationBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Missile);
+            Assert.Equal(-2, attackImplement.ShipSpeedModification);
         }
     }
 }

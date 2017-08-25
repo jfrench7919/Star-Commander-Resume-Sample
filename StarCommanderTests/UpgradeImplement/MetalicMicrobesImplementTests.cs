@@ -32,5 +32,26 @@ namespace StarCommander.UpgradeImplement.Tests
             IUpgradeImplement upgradeImplement = UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.MetalicMicrobes);
             Assert.Equal(100, upgradeImplement.Health);
         }
+
+        [Fact()]
+        public void MetalicMicrobesShipHealthModificationBaseValueTest()
+        {
+            IUpgradeImplement upgradeImplement = UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.MetalicMicrobes);
+            Assert.Equal(10, upgradeImplement.ShipHealthModification);
+        }
+
+        [Fact()]
+        public void MetalicMicrobesShipPowerModificationBaseValueTest()
+        {
+            IUpgradeImplement upgradeImplement = UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.MetalicMicrobes);
+            Assert.Equal(0, upgradeImplement.ShipPowerModification);
+        }
+
+        [Fact()]
+        public void MetalicMicrobesShipSpeedModificationBaseValueTest()
+        {
+            IUpgradeImplement upgradeImplement = UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.MetalicMicrobes);
+            Assert.Equal(-2, upgradeImplement.ShipSpeedModification);
+        }
     }
 }

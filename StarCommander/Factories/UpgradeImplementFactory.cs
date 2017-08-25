@@ -37,13 +37,18 @@ namespace StarCommander.Factories
             upgradeImplement.Power = 15;
             upgradeImplement.Size = 10;
             upgradeImplement.Health = 100;
+            upgradeImplement.ShipHealthModification = 10;
+            upgradeImplement.ShipArmorModification = 10;
+            upgradeImplement.ShipSpeedModification = -2;
         }
 
         private static void SetMineFieldDefaultValues(IUpgradeImplement upgradeImplement)
         {
             upgradeImplement.Power = 25;
-            upgradeImplement.Size = 25;
+            upgradeImplement.Size = 20;
             upgradeImplement.Health = 100;
+            upgradeImplement.ShipArmorModification = 70;
+            upgradeImplement.ShipSpeedModification = -20;
         }
 
         private static void SetWarpDriveDefaultValues(IUpgradeImplement upgradeImplement)
@@ -51,6 +56,7 @@ namespace StarCommander.Factories
             upgradeImplement.Power = 10;
             upgradeImplement.Size = 5;
             upgradeImplement.Health = 100;
+            upgradeImplement.ShipSpeedModification = 30;
         }
     }
 }

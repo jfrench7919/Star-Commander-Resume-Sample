@@ -65,6 +65,7 @@
     <Compile Include="AttackImplement\AttackImplementTests.cs" />
     <Compile Include="Factories\AttackImplementFactoryTests.cs" />
     <Compile Include="Factories\DefendImplementFactoryTests.cs" />
+    <Compile Include="Factories\ShipConfigerationFactoryTests.cs" />
     <Compile Include="Factories\ShipFactoryTests.cs" />
     <Compile Include="Factories\UpgradeImplementFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

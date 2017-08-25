@@ -15,25 +15,34 @@ namespace StarCommander.Factories.Tests
         [Fact()]
         public void CreateShipFighterTest()
         {
-            Assert.IsType<Fighter>(ShipFactory.CreateShip(ShipType.Fighter));
+            Assert.IsType<Fighter>(ShipFactory.CreateShip(ShipType.Fighter, null));
         }
 
         [Fact()]
         public void CreateShipFrigetTest()
         {
-            Assert.IsType<Friget>(ShipFactory.CreateShip(ShipType.Friget));
+            Assert.IsType<Friget>(ShipFactory.CreateShip(ShipType.Friget, null));
         }
 
         [Fact()]
         public void CreateShipDestroyerTest()
         {
-            Assert.IsType<Destroyer>(ShipFactory.CreateShip(ShipType.Destroyer));
+            Assert.IsType<Destroyer>(ShipFactory.CreateShip(ShipType.Destroyer, null));
         }
 
         [Fact()]
         public void CreateShipNullTest()
         {
-            Assert.Equal(null, ShipFactory.CreateShip(null));
+            Assert.Equal(null, ShipFactory.CreateShip(null, null));
+        }
+
+
+        //Todo: Start some better test for implemented StarShips
+        [Fact()]
+        public void CreateShipTest()
+        {
+            var t = ShipFactory.CreateShip(ShipType.Friget, ShipConfigurationType.Balanced);
+            Assert.IsType<Friget>(ShipFactory.CreateShip(ShipType.Friget, ShipConfigurationType.Balanced));
         }
     }
 }

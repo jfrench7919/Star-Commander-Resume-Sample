@@ -18,6 +18,11 @@ namespace StarCommander.AttackImplement
         public Nullable<int> Ammo { get; set; }
         public int Size { get; set; }
         public int Health { get; set; }
+        public int ShipSpeedModification { get; set; }
+        public int ShipPowerModification { get; set; }
+        public int ShipHealthModification { get; set; }
+        public int ShipArmorModification { get; set; }
+        public List<IStarShip> EnemyShips { get; set; }
 
         public virtual void Fire()
         {
@@ -38,7 +43,5 @@ namespace StarCommander.AttackImplement
                 }
             }
         }
-
-        public List<IStarShip> EnemyShips { get; set; }
     }
 }

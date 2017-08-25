@@ -20,6 +20,13 @@ namespace StarCommander.AttackImplement.Tests
         }
 
         [Fact()]
+        public void PlasmaCannonShipArmorModificationBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PlasmaCannon);
+            Assert.Equal(0, attackImplement.ShipArmorModification);
+        }
+
+        [Fact()]
         public void PlasmaCannonSizeBaseValueTest()
         {
             IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PlasmaCannon);
@@ -71,10 +78,31 @@ namespace StarCommander.AttackImplement.Tests
         public void PlasmaCannonObserverCountTest()
         {
             IAttackImplement ai = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PlasmaCannon);
-            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter));
-            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter));
-            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter));
+            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter, null));
+            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter, null));
+            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter, null));
             Assert.Equal(3, ai.EnemyShips.Count());
+        }
+
+        [Fact()]
+        public void PlasmaCannonShipHealthModificationBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PlasmaCannon);
+            Assert.Equal(0, attackImplement.ShipHealthModification);
+        }
+
+        [Fact()]
+        public void PlasmaCannonShipPowerModificationBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PlasmaCannon);
+            Assert.Equal(0, attackImplement.ShipPowerModification);
+        }
+
+        [Fact()]
+        public void PlasmaCannonShipSpeedModificationBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PlasmaCannon);
+            Assert.Equal(-4, attackImplement.ShipSpeedModification);
         }
     }
 }

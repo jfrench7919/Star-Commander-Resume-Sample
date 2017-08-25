@@ -32,5 +32,26 @@ namespace StarCommander.UpgradeImplement.Tests
             IUpgradeImplement upgradeImplement = UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.WarpDrive);
             Assert.Equal(100, upgradeImplement.Health);
         }
+
+        [Fact()]
+        public void WarpDriveShipHealthModificationBaseValueTest()
+        {
+            IUpgradeImplement upgradeImplement = UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.WarpDrive);
+            Assert.Equal(0, upgradeImplement.ShipHealthModification);
+        }
+
+        [Fact()]
+        public void WarpDriveShipPowerModificationBaseValueTest()
+        {
+            IUpgradeImplement upgradeImplement = UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.WarpDrive);
+            Assert.Equal(0, upgradeImplement.ShipPowerModification);
+        }
+
+        [Fact()]
+        public void WarpDriveShipSpeedModificationBaseValueTest()
+        {
+            IUpgradeImplement upgradeImplement = UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.WarpDrive);
+            Assert.Equal(30, upgradeImplement.ShipSpeedModification);
+        }
     }
 }

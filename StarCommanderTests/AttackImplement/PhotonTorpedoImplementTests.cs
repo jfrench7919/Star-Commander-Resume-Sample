@@ -20,6 +20,13 @@ namespace StarCommander.AttackImplement.Tests
         }
 
         [Fact()]
+        public void PhotonTorpedoShipArmorModificationBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PhotonTorpedo);
+            Assert.Equal(0, attackImplement.ShipArmorModification);
+        }
+
+        [Fact()]
         public void PhotonTorpedoSizeBaseValueTest()
         {
             IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PhotonTorpedo);
@@ -71,10 +78,31 @@ namespace StarCommander.AttackImplement.Tests
         public void PhotonTorpedoObserverCountTest()
         {
             IAttackImplement ai = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PhotonTorpedo);
-            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter));
-            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter));
-            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter));
+            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter, null));
+            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter, null));
+            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter, null));
             Assert.Equal(3, ai.EnemyShips.Count());
+        }
+
+        [Fact()]
+        public void PhotonTorpedoShipHealthModificationBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PhotonTorpedo);
+            Assert.Equal(0, attackImplement.ShipHealthModification);
+        }
+
+        [Fact()]
+        public void PhotonTorpedoShipPowerModificationBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PhotonTorpedo);
+            Assert.Equal(0, attackImplement.ShipPowerModification);
+        }
+
+        [Fact()]
+        public void PhotonTorpedoShipSpeedModificationBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PhotonTorpedo);
+            Assert.Equal(-3, attackImplement.ShipSpeedModification);
         }
     }
 }

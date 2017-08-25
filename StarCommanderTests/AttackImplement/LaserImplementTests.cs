@@ -40,6 +40,7 @@ namespace StarCommander.AttackImplement.Tests
             Assert.Equal(false, attackImplement.Ammo.HasValue);
         }
 
+
         [Fact()]
         public void LaserAmmoAvailableTest()
         {
@@ -71,10 +72,38 @@ namespace StarCommander.AttackImplement.Tests
         public void LaserObserverCountTest()
         {
             IAttackImplement ai = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Laser);
-            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter));
-            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter));
-            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter));
+            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter, null));
+            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter, null));
+            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter, null));
             Assert.Equal(3, ai.EnemyShips.Count());
+        }
+
+        [Fact()]
+        public void LaserShipHealthModificationBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Laser);
+            Assert.Equal(0, attackImplement.ShipHealthModification);
+        }
+
+        [Fact()]
+        public void LaserShipPowerModificationBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Laser);
+            Assert.Equal(0, attackImplement.ShipPowerModification);
+        }
+
+        [Fact()]
+        public void LaserShipArmorModificationBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Laser);
+            Assert.Equal(0, attackImplement.ShipArmorModification);
+        }
+
+        [Fact()]
+        public void LaserShipSpeedModificationBaseValueTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Laser);
+            Assert.Equal(-1, attackImplement.ShipSpeedModification);
         }
     }
 }
