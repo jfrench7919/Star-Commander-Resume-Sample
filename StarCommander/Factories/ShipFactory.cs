@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StarCommander.Ships;
 using StarCommander.Types;
-using StarCommander.Implement;
+using StarCommander.Configeration;
 using StarCommander.ShipDecorator;
 
 namespace StarCommander.Factories
@@ -41,29 +41,30 @@ namespace StarCommander.Factories
             if (shipType != null && configurationType != null)
             {
                 IShipConfigeration conCollection = ShipConfigerationFactory.CreateShipConfiguration(shipType, configurationType);
-                foreach (var i in conCollection.attackImplements)
-                {
-                    AttackImplementDecorator.DecorateShip(ship, i);
-                }
 
+                foreach (var i in conCollection.upgradeImplements)
+                {
+                    UpgradeImplementDecorator.DecorateShip(ship, i);
+                }
+                
                 foreach (var i in conCollection.defendImplements)
                 {
                     DefendImplementDecorator.DecorateShip(ship, i);
                 }
 
-                foreach (var i in conCollection.upgradeImplements)
+                foreach (var i in conCollection.attackImplements)
                 {
-                    UpgradeImplementDecorator.DecorateShip(ship, i);
+                    AttackImplementDecorator.DecorateShip(ship, i);
                 }
             }
         }
 
         private static void SetFighterDefaultValues(IStarShip ship)
         {
-            ship.Power = 50;
+            ship.Power = 100;
             ship.Size = 70;
-            ship.Armor = 30;
-            ship.Speed = 80;
+            ship.Armor = 90;
+            ship.Speed = 800;
             ship.NumberOfAttackSlots = 15;
             ship.NumberOfDefendSlots = 10;
             ship.NumberOfUpgradeSlots = 5;
@@ -71,10 +72,10 @@ namespace StarCommander.Factories
 
         private static void SetFrigetDefaultValues(IStarShip ship)
         {
-            ship.Power = 70;
+            ship.Power = 140;
             ship.Size = 500;
-            ship.Armor = 60;
-            ship.Speed = 30;
+            ship.Armor = 180;
+            ship.Speed = 500;
             ship.NumberOfAttackSlots = 40;
             ship.NumberOfDefendSlots = 20;
             ship.NumberOfUpgradeSlots = 10;
@@ -82,10 +83,10 @@ namespace StarCommander.Factories
 
         private static void SetDestroyerDefaultValues(IStarShip ship)
         {
-            ship.Power = 100;
+            ship.Power = 200;
             ship.Size = 2000;
-            ship.Armor = 90;
-            ship.Speed = 10;
+            ship.Armor = 270;
+            ship.Speed = 300;
             ship.NumberOfAttackSlots = 150;
             ship.NumberOfDefendSlots = 50;
             ship.NumberOfUpgradeSlots = 20;

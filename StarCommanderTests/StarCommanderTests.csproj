@@ -64,7 +64,10 @@
   <ItemGroup>
     <Compile Include="AttackImplement\AttackImplementTests.cs" />
     <Compile Include="Factories\AttackImplementFactoryTests.cs" />
+    <Compile Include="Factories\BattleFieldFactoryTests.cs" />
     <Compile Include="Factories\DefendImplementFactoryTests.cs" />
+    <Compile Include="Factories\FleetConfigerationFactoryTests.cs" />
+    <Compile Include="Factories\FleetFactoryTests.cs" />
     <Compile Include="Factories\ShipConfigerationFactoryTests.cs" />
     <Compile Include="Factories\ShipFactoryTests.cs" />
     <Compile Include="Factories\UpgradeImplementFactoryTests.cs" />

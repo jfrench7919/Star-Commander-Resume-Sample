@@ -7,7 +7,7 @@ using StarCommander.AttackImplement;
 using StarCommander.DefendImplement;
 using StarCommander.UpgradeImplement;
 
-namespace StarCommander.Implement
+namespace StarCommander.Configeration
 {
     public class ShipConfigeration : IShipConfigeration
     {

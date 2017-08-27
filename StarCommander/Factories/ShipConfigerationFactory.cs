@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StarCommander.Implement;
+using StarCommander.Configeration;
 using StarCommander.Types;
 
 namespace StarCommander.Factories

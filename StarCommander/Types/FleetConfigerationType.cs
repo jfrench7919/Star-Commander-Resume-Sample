@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StarCommander.Factories
+namespace StarCommander.Types
 {
-    public class BattleFactory
+    public enum FleetConfigerationType
     {
+        SmallShips,
+        BalancedShips,
+        HeavyShips
     }
 }

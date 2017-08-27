@@ -16,21 +16,21 @@ namespace StarCommander.Ships.Tests
         public void FrigetPowerBaseValueTest()
         {
             IStarShip ship = ShipFactory.CreateShip(ShipType.Friget, null);
-            Assert.Equal(70, ship.Power);
+            Assert.Equal(140, ship.Power);
         }
 
         [Fact()]
         public void FrigetSpeedBaseValueTest()
         {
             IStarShip ship = ShipFactory.CreateShip(ShipType.Friget, null);
-            Assert.Equal(30, ship.Speed);
+            Assert.Equal(500, ship.Speed);
         }
 
         [Fact()]
         public void FrigetArmorBaseValueTest()
         {
             IStarShip ship = ShipFactory.CreateShip(ShipType.Friget, null);
-            Assert.Equal(60, ship.Armor);
+            Assert.Equal(180, ship.Armor);
         }
 
         [Fact()]

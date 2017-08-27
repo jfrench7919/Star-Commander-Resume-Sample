@@ -16,21 +16,21 @@ namespace StarCommander.Ships.Tests
         public void DestroyerPowerBaseValueTest()
         {
             IStarShip ship = ShipFactory.CreateShip(ShipType.Destroyer, null);
-            Assert.Equal(100, ship.Power);
+            Assert.Equal(200, ship.Power);
         }
 
         [Fact()]
         public void DestroyerSpeedBaseValueTest()
         {
             IStarShip ship = ShipFactory.CreateShip(ShipType.Destroyer, null);
-            Assert.Equal(10, ship.Speed);
+            Assert.Equal(300, ship.Speed);
         }
 
         [Fact()]
         public void DestroyerArmorBaseValueTest()
         {
             IStarShip ship = ShipFactory.CreateShip(ShipType.Destroyer, null);
-            Assert.Equal(90, ship.Armor);
+            Assert.Equal(270, ship.Armor);
         }
 
         [Fact()]

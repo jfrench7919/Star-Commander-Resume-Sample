@@ -16,21 +16,21 @@ namespace StarCommander.Ships.Tests
         public void FighterPowerBaseValueTest()
         {
             IStarShip ship = ShipFactory.CreateShip(ShipType.Fighter, null);
-            Assert.Equal(50, ship.Power);
+            Assert.Equal(100, ship.Power);
         }
 
         [Fact()]
         public void FighterSpeedBaseValueTest()
         {
             IStarShip ship = ShipFactory.CreateShip(ShipType.Fighter, null);
-            Assert.Equal(80, ship.Speed);
+            Assert.Equal(800, ship.Speed);
         }
 
         [Fact()]
         public void FighterArmorBaseValueTest()
         {
             IStarShip ship = ShipFactory.CreateShip(ShipType.Fighter, null);
-            Assert.Equal(30, ship.Armor);
+            Assert.Equal(90, ship.Armor);
         }
 
         [Fact()]

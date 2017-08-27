@@ -40,14 +40,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BattleField\BattleField.cs" />
+    <Compile Include="BattleField\IBattleField.cs" />
+    <Compile Include="Configeration\BattleFieldConfigeration.cs" />
+    <Compile Include="Configeration\FleetConfigeration.cs" />
+    <Compile Include="Configeration\IBattleFieldConfigeration.cs" />
+    <Compile Include="Configeration\IFleetConfigeration.cs" />
+    <Compile Include="Factories\FleetConfigerationFactory.cs" />
+    <Compile Include="Factories\FleetFactory.cs" />
+    <Compile Include="Fleet\Fleet.cs" />
+    <Compile Include="Fleet\IFleet.cs" />
     <Compile Include="Factories\AttackImplementFactory.cs" />
-    <Compile Include="Factories\BattleFactory.cs" />
+    <Compile Include="Factories\BattleFieldFactory.cs" />
     <Compile Include="Factories\DefendImplementFactory.cs" />
     <Compile Include="Factories\ShipConfigerationFactory.cs" />
     <Compile Include="Factories\UpgradeImplementFactory.cs" />
     <Compile Include="Factories\ShipFactory.cs" />
-    <Compile Include="Implement\IShipConfigeration.cs" />
-    <Compile Include="Implement\ShipConfigeration.cs" />
+    <Compile Include="Configeration\IShipConfigeration.cs" />
+    <Compile Include="Configeration\ShipConfigeration.cs" />
     <Compile Include="ShipDecorator\UpgradeImplementDecorator.cs" />
     <Compile Include="ShipDecorator\DefendImplementDecorator.cs" />
     <Compile Include="ShipDecorator\AttackImplementDecorator.cs" />
@@ -65,6 +75,7 @@
     <Compile Include="Implement\IImplement.cs" />
     <Compile Include="Types\BattleFieldType.cs" />
     <Compile Include="Types\BattleStratagyType.cs" />
+    <Compile Include="Types\FleetConfigerationType.cs" />
     <Compile Include="Types\ShipConfigurationType.cs" />
     <Compile Include="UpgradeImplement\MetalicMicrobesImplement.cs" />
     <Compile Include="UpgradeImplement\MineFieldImplement.cs" />
