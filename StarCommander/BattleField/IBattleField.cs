@@ -14,7 +14,7 @@ namespace StarCommander.BattleField
         int NumberOfFleetSlotsAvailable { get; }
 
         void StartBattle();
-        void AdvanceRound();
-        void EndBattle();
+        void AdvanceRound(IFleet myFleet);
+        void StartRound(IFleet myFleet);
     }
 }

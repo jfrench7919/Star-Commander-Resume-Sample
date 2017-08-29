@@ -44,7 +44,7 @@ namespace StarCommander.Ships.Tests
         public void FrigetHealthBaseValueTest()
         {
             IStarShip ship = ShipFactory.CreateShip(ShipType.Friget, null);
-            Assert.Equal(100, ship.Health);
+            Assert.Equal(500, ship.Health);
         }
 
         [Fact()]

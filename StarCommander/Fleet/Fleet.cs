@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StarCommander.AttackImplement;
 using StarCommander.Ships;
 using StarCommander.Types;
+using StarCommander.BattleField;
 
 namespace StarCommander.Fleet
 {
@@ -13,11 +15,12 @@ namespace StarCommander.Fleet
         public Fleet()
         {
             StarShips = new List<IStarShip>();
+            NumberOfShipSlots = 12000;
         }
 
         public BattleStratagyType BattleStratagyType { get; set; }
-        //12000
         public int NumberOfShipSlots { get; set; }
+        public int NumberOfRoundsCompleted { get; set; }
         public List<IStarShip> StarShips { get; set; }
 
         public int Size
@@ -36,22 +39,38 @@ namespace StarCommander.Fleet
             }
         }
 
-        public void AttackEnemyShips()
+        public void AttacKEnemyShips(IFleet enemyFleet)
         {
-            throw new NotImplementedException();
+            foreach (IStarShip ship in StarShips)
+            {
+                ship.AttackEnemyShips(enemyFleet, BattleStratagyType);
+            }
+
+            CheckEnemyFleetHealth(enemyFleet);
         }
 
-        public void EnterField()
+        private static void CheckEnemyFleetHealth(IFleet enemyFleet)
         {
-            throw new NotImplementedException();
+            if (enemyFleet.StarShips.Sum(x => x.Health) == 0)
+            {
+                enemyFleet.ReportDestruction();
+            }
         }
 
-        public void LeaveField()
+        public void EnterField(IBattleField battleField)
         {
-            throw new NotImplementedException();
+            if (battleField.NumberOfFleetSlotsAvailable > this.Size)
+            {
+                battleField.Fleets.Add(this);
+            }
         }
 
-        public void TargetEnemyShips()
+        public void LeaveField(IBattleField battleField)
+        {
+            battleField.Fleets.Remove(this);
+        }
+
+        public void ReportDestruction()
         {
             throw new NotImplementedException();
         }

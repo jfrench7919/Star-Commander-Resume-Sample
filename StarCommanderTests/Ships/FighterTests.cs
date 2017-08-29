@@ -44,7 +44,7 @@ namespace StarCommander.Ships.Tests
         public void FighterHealthBaseValueTest()
         {
             IStarShip ship = ShipFactory.CreateShip(ShipType.Fighter, null);
-            Assert.Equal(100, ship.Health);
+            Assert.Equal(250, ship.Health);
         }
 
         [Fact()]

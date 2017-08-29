@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using StarCommander.AttackImplement;
 using StarCommander.DefendImplement;
 using StarCommander.UpgradeImplement;
+using StarCommander.Fleet;
+using StarCommander.Types;
 
 namespace StarCommander.Ships
 {
@@ -25,12 +27,14 @@ namespace StarCommander.Ships
         int NumberOfUpgradeSlots { get; set; }
         List<IUpgradeImplement> UpgradeImplements { get; set; }
         int NumberOfUpgradeSlotsAvailable { get; }
-
+        List<IAttackImplement> availableAttackImplements { get; }
 
         void Advance();
         void Retreat();
         void Attack();
         void Deffend();
-        void ReceiveDamage();
+        void TakeDamage(int damageAmount);
+        void ReportDistruction();
+        void AttackEnemyShips(IFleet enemyFleet, BattleStratagyType battleStratagyType);
     }
 }

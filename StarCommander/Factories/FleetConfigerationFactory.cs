@@ -34,12 +34,10 @@ namespace StarCommander.Factories
 
         private static void CreateHeavyShipDefaultCollection(IFleetConfigeration heavyShips)
         {
-            //Add Fighters
-            for (int i = 0; i < 15; i++)
+            //Add Destroyers
+            for (int i = 0; i < 2; i++)
             {
-                heavyShips.Fighters.Add(ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Heavy));
-                heavyShips.Fighters.Add(ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Heavy));
-                heavyShips.Fighters.Add(ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Balanced));
+                heavyShips.Destroyers.Add(ShipFactory.CreateShip(ShipType.Destroyer, ShipConfigurationType.Heavy));
             }
 
             //Add Friget
@@ -50,52 +48,53 @@ namespace StarCommander.Factories
                 heavyShips.Frigets.Add(ShipFactory.CreateShip(ShipType.Friget, ShipConfigurationType.Balanced));
             }
 
-            //Add Destroyers
-            for (int i = 0; i < 2; i++)
+            //Add Fighters
+            for (int i = 0; i < 16; i++)
             {
-                heavyShips.Destroyers.Add(ShipFactory.CreateShip(ShipType.Destroyer, ShipConfigurationType.Heavy));
+                heavyShips.Fighters.Add(ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Heavy));
+                heavyShips.Fighters.Add(ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Heavy));
+                heavyShips.Fighters.Add(ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Balanced));
             }
         }
 
         private static void CreateBalancedShipDefaultCollection(IFleetConfigeration balancedShips)
         {
-            //Add Fighters
-            for (int i = 0; i < 20; i++)
-            {
-                balancedShips.Fighters.Add(ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Balanced));
-                balancedShips.Fighters.Add(ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Balanced));
-                balancedShips.Fighters.Add(ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Light));
-            }
-
+            //Add Destroyers
+            balancedShips.Destroyers.Add(ShipFactory.CreateShip(ShipType.Destroyer, ShipConfigurationType.Balanced));
+            
             //Add Friget
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 3; i++)
             {
                 balancedShips.Frigets.Add(ShipFactory.CreateShip(ShipType.Friget, ShipConfigurationType.Balanced));
                 balancedShips.Frigets.Add(ShipFactory.CreateShip(ShipType.Friget, ShipConfigurationType.Balanced));
                 balancedShips.Frigets.Add(ShipFactory.CreateShip(ShipType.Friget, ShipConfigurationType.Heavy));
             }
 
-            //Add Destroyers
-            balancedShips.Destroyers.Add(ShipFactory.CreateShip(ShipType.Destroyer, ShipConfigurationType.Balanced));
-            
+            //Add Fighters
+            for (int i = 0; i < 25; i++)
+            {
+                balancedShips.Fighters.Add(ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Balanced));
+                balancedShips.Fighters.Add(ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Balanced));
+                balancedShips.Fighters.Add(ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Light));
+            }
         }
 
         private static void CreateSmallShipDefaultCollection(IFleetConfigeration smallShips)
         {
-            //Add Fighters
-            for (int i = 0; i < 30; i++)
-            {
-                smallShips.Fighters.Add(ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Light));
-                smallShips.Fighters.Add(ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Light));
-                smallShips.Fighters.Add(ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Balanced));
-            }
-
             //Add Friget
             for (int i = 0; i < 3; i++)
             {
                 smallShips.Frigets.Add(ShipFactory.CreateShip(ShipType.Friget, ShipConfigurationType.Light));
                 smallShips.Frigets.Add(ShipFactory.CreateShip(ShipType.Friget, ShipConfigurationType.Light));
                 smallShips.Frigets.Add(ShipFactory.CreateShip(ShipType.Friget, ShipConfigurationType.Balanced));
+            }
+
+            //Add Fighters
+            for (int i = 0; i < 35; i++)
+            {
+                smallShips.Fighters.Add(ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Light));
+                smallShips.Fighters.Add(ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Light));
+                smallShips.Fighters.Add(ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Balanced));
             }
         }
     }

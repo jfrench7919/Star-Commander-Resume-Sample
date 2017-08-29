@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StarCommander.Ships;
 
 namespace StarCommander.AttackImplement.Tests
 {
@@ -61,27 +62,9 @@ namespace StarCommander.AttackImplement.Tests
             var shots = ai.Ammo;
             for (int i = 0; i < shots; i++)
             {
-                ai.Fire();
+                ai.Fire(new Fighter());
             }
             Assert.False(ai.AmmoAvailable);
-        }
-
-        [Fact()]
-        public void PlasmaCannonObserverNotNullTest()
-        {
-            IAttackImplement ai = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PlasmaCannon);
-            Assert.False(ai.EnemyShips == null);
-            Assert.Equal(0, ai.EnemyShips.Count());
-        }
-
-        [Fact()]
-        public void PlasmaCannonObserverCountTest()
-        {
-            IAttackImplement ai = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PlasmaCannon);
-            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter, null));
-            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter, null));
-            ai.EnemyShips.Add(ShipFactory.CreateShip(ShipType.Fighter, null));
-            Assert.Equal(3, ai.EnemyShips.Count());
         }
 
         [Fact()]

@@ -10,7 +10,6 @@ namespace StarCommander.Ships
     {
         public Friget()
         {
-
         }
     }
 }

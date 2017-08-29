@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using StarCommander.AttackImplement;
 using StarCommander.DefendImplement;
 using StarCommander.UpgradeImplement;
+using StarCommander.Fleet;
+using StarCommander.Types;
 
 namespace StarCommander.Ships
 {
@@ -16,7 +18,7 @@ namespace StarCommander.Ships
             Power = 50;
             Size = 50;
             Armor = 50;
-            Health = 100;
+            Health = 500;
             AttackImplements = new List<IAttackImplement>();
             DefendImplements = new List<IDefendImplement>();
             UpgradeImplements = new List<IUpgradeImplement>();
@@ -75,9 +77,80 @@ namespace StarCommander.Ships
             throw new NotImplementedException();
         }
 
-        public void ReceiveDamage()
+        public void TakeDamage(int damageAmount)
         {
+            damageAmount = DamageArmor(damageAmount);
+            DamageHealth(damageAmount);
+            CheckHealth();
+        }
 
+        public List<IAttackImplement> availableAttackImplements
+        {
+            get
+            {
+                List<IAttackImplement> myImplements = new List<IAttackImplement>();
+                foreach (IAttackImplement implement in AttackImplements)
+                {
+                    myImplements.Add(implement);
+                }
+
+                return myImplements;
+            }
+        }
+
+        public void AttackEnemyShips(IFleet enemyFleet, BattleStratagyType battleStratagyType)
+        {
+            foreach (IAttackImplement i in availableAttackImplements)
+            {
+                i.AttackEnemyShips(enemyFleet, battleStratagyType);
+            }
+        }
+
+        private void DamageHealth(int damageAmount)
+        {
+            if (Health > 0 && damageAmount > 0)
+            {
+                if (Health > damageAmount)
+                {
+                    Health = Health - damageAmount;
+                }
+                else
+                {
+                    Health = 0;
+                }
+            }
+        }
+
+        private int DamageArmor(int damageAmount)
+        {
+            if (Armor > 0)
+            {
+                if (Armor > damageAmount)
+                {
+                    Armor = Armor - damageAmount;
+                    damageAmount = 0;
+                }
+                else
+                {
+                    damageAmount = damageAmount - Armor;
+                    Armor = 0;
+                }
+            }
+
+            return damageAmount;
+        }
+
+        private void CheckHealth()
+        {
+            if (Health == 0)
+            {
+                ReportDistruction();
+            }
+        }
+
+        public void ReportDistruction()
+        {
+            //throw new NotImplementedException();
         }
     }
 }

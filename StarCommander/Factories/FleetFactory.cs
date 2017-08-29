@@ -37,13 +37,13 @@ namespace StarCommander.Factories
 
         private static void BuildHeavyShipsCollection(IFleet heavyShips, FleetConfigerationType? fleetConfigerationType)
         {
-            IFleetConfigeration fleetConfigeration = FleetConfigerationFactory.CreateFleetConfiguration(FleetConfigerationType.SmallShips);
+            IFleetConfigeration fleetConfigeration = FleetConfigerationFactory.CreateFleetConfiguration(FleetConfigerationType.HeavyShips);
             AddShips(heavyShips, fleetConfigeration);
         }
 
         private static void BuildBalancedShipsCollection(IFleet balancedShips, FleetConfigerationType? fleetConfigerationType)
         {
-            IFleetConfigeration fleetConfigeration = FleetConfigerationFactory.CreateFleetConfiguration(FleetConfigerationType.SmallShips);
+            IFleetConfigeration fleetConfigeration = FleetConfigerationFactory.CreateFleetConfiguration(FleetConfigerationType.BalancedShips);
             AddShips(balancedShips, fleetConfigeration);
         }
 
@@ -73,21 +73,30 @@ namespace StarCommander.Factories
             fleet.BattleStratagyType = battleStratagyType;
         }
 
-        private static void AddShips(IFleet smallShips, IFleetConfigeration fleetConfigeration)
+        private static void AddShips(IFleet ships, IFleetConfigeration fleetConfigeration)
         {
-            foreach (var ship in fleetConfigeration.Fighters)
+            foreach (var ship in fleetConfigeration.Destroyers)
             {
-                smallShips.StarShips.Add(ship);
+                if (ships.NumberOfShipSlotsAvailable > ship.Size)
+                {
+                    ships.StarShips.Add(ship);
+                }
             }
 
             foreach (var ship in fleetConfigeration.Frigets)
             {
-                smallShips.StarShips.Add(ship);
+                if (ships.NumberOfShipSlotsAvailable > ship.Size)
+                {
+                    ships.StarShips.Add(ship);
+                }
             }
 
-            foreach (var ship in fleetConfigeration.Destroyers)
+            foreach (var ship in fleetConfigeration.Fighters)
             {
-                smallShips.StarShips.Add(ship);
+                if (ships.NumberOfShipSlotsAvailable > ship.Size)
+                {
+                    ships.StarShips.Add(ship);
+                }
             }
         }
     }

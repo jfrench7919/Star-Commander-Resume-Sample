@@ -65,6 +65,7 @@ namespace StarCommander.Factories
             ship.Size = 70;
             ship.Armor = 90;
             ship.Speed = 800;
+            ship.Health = 250;
             ship.NumberOfAttackSlots = 15;
             ship.NumberOfDefendSlots = 10;
             ship.NumberOfUpgradeSlots = 5;
@@ -76,6 +77,7 @@ namespace StarCommander.Factories
             ship.Size = 500;
             ship.Armor = 180;
             ship.Speed = 500;
+            ship.Health = 500;
             ship.NumberOfAttackSlots = 40;
             ship.NumberOfDefendSlots = 20;
             ship.NumberOfUpgradeSlots = 10;
@@ -87,6 +89,7 @@ namespace StarCommander.Factories
             ship.Size = 2000;
             ship.Armor = 270;
             ship.Speed = 300;
+            ship.Health = 1000;
             ship.NumberOfAttackSlots = 150;
             ship.NumberOfDefendSlots = 50;
             ship.NumberOfUpgradeSlots = 20;

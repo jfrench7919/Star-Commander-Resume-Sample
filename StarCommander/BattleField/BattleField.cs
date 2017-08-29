@@ -25,17 +25,55 @@ namespace StarCommander.BattleField
             }
         }
 
-        public void AdvanceRound()
+        public void AdvanceRound(IFleet myFleet)
         {
-            throw new NotImplementedException();
-        }
-
-        public void EndBattle()
-        {
-            throw new NotImplementedException();
+            myFleet.NumberOfRoundsCompleted++;
+            StartRound(GetFleetWithTurnLeft());
         }
 
         public void StartBattle()
+        {
+            StartRound(GetFleetWithTurnLeft());
+        }
+
+        public void StartRound(IFleet myFleet)
+        {
+            if (!CheckForVictory())
+            {
+                IFleet enemyFleet = GetFirstFleetsEnemy(myFleet);
+                myFleet.AttacKEnemyShips(enemyFleet);
+                AdvanceRound(myFleet);
+            }
+            else
+            {
+                ReportBattleWon();
+            }
+        }
+
+        private IFleet GetFirstFleetsEnemy(IFleet myFleet)
+        {
+            return Fleets.Where(x => x != myFleet).FirstOrDefault();
+        }
+        
+        private IFleet GetFleetWithTurnLeft()
+        {
+            return Fleets.OrderBy(x => x.NumberOfRoundsCompleted).FirstOrDefault();
+        }
+
+        private bool CheckForVictory()
+        {
+            if (Fleets.Where(x => x.StarShips.Sum(s => s.Health) >= 0).Count() < 2)
+            {
+                ReportBattleWon();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void ReportBattleWon()
         {
             throw new NotImplementedException();
         }
