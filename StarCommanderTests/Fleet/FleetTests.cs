@@ -1,5 +1,5 @@
 ﻿using Xunit;
-using StarCommander.Fleet;
+using StarCommander.Fleets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using StarCommander.Factories;
 using StarCommander.Types;
 using StarCommander.Ships;
-using StarCommander.BattleField;
+using StarCommander.BattleFields;
 
 namespace StarCommander.Fleet.Tests
 {
@@ -17,7 +17,7 @@ namespace StarCommander.Fleet.Tests
         [Fact()]
         public void FleetDefaultNumberOfShipSlotsTest()
         {
-            IFleet fleet = new Fleet();
+            IFleet fleet = new Fleets.Fleet();
             Assert.Equal(12000, fleet.NumberOfShipSlots);
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using StarCommander.AttackImplement;
 using StarCommander.DefendImplement;
 using StarCommander.UpgradeImplement;
-using StarCommander.Fleet;
+using StarCommander.Fleets;
 using StarCommander.Types;
 using StarCommander.AttackResults;
 

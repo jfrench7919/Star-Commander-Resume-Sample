@@ -2,8 +2,9 @@
 using System.Linq;
 using StarCommander.Ships;
 using StarCommander.Types;
-using StarCommander.Fleet;
+using StarCommander.Fleets;
 using StarCommander.AttackResults;
+using System.Collections.Generic;
 
 namespace StarCommander.AttackImplement
 {
@@ -18,12 +19,16 @@ namespace StarCommander.AttackImplement
         public int ShipHealthModification { get; set; }
         public int ShipArmorModification { get; set; }
 
-        
+        private Random rnd { get; set; } = new Random();
 
         public virtual int CalculateDamage()
         {
-            Random r = new Random();
-            return Power * r.Next(2, 4);
+            
+            if (rnd.Next(0, 3) > 0)
+            {
+                return Power * rnd.Next(2, 4);
+            }
+            return 0;
         }
 
         public bool AmmoAvailable
@@ -67,14 +72,30 @@ namespace StarCommander.AttackImplement
             switch (battleStratagyType)
             {
                 case BattleStratagyType.WeekShipsFirst:
-                    return enemyFleet.WorkingStarShips.OrderBy(x => x.Power).OrderBy(x => x.Health).OrderBy(x => x.Armor).FirstOrDefault();
+                    var first25Week = enemyFleet.WorkingStarShips.OrderBy(x => x.Power).OrderBy(x => x.Health).OrderBy(x => x.Armor).Take(25).ToList();
+                    return FindShip(first25Week);
                 case BattleStratagyType.StrongShipsFirst:
-                    return enemyFleet.WorkingStarShips.OrderByDescending(x => x.Power).OrderByDescending(x => x.Health).OrderByDescending(x => x.Armor).FirstOrDefault();
+                    var first25Strong = enemyFleet.WorkingStarShips.OrderByDescending(x => x.Power).OrderByDescending(x => x.Health).OrderByDescending(x => x.Armor).Take(25).ToList();
+                    return FindShip(first25Strong);
                 case BattleStratagyType.NoPriority:
-                    return enemyFleet.WorkingStarShips.OrderByDescending(x => x.Health).FirstOrDefault();
+                    var first25Health = enemyFleet.WorkingStarShips.OrderByDescending(x => x.Health).Take(25).ToList();
+                    return FindShip(first25Health);
                 default:
-                    return enemyFleet.WorkingStarShips.OrderByDescending(x => x.Health).FirstOrDefault();
+                    var first25Null = enemyFleet.WorkingStarShips.OrderByDescending(x => x.Health).Take(25).ToList();
+                    return FindShip(first25Null);
             }
+        }
+
+        private IStarShip FindShip(List<IStarShip> enemyShips)
+        {
+            int index = 0;
+
+            if (enemyShips.Count > 0)
+            {
+                index = rnd.Next(1, enemyShips.Count());
+                return enemyShips[index - 1];
+            }
+            return null;
         }
     }
 }

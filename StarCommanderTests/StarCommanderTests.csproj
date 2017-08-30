@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="AttackImplement\AttackImplementTests.cs" />
     <Compile Include="BattleField\BattleFieldTests.cs" />
+    <Compile Include="BattleResult\BattleResultsTests.cs" />
     <Compile Include="Factories\AttackImplementFactoryTests.cs" />
     <Compile Include="Factories\BattleFieldFactoryTests.cs" />
     <Compile Include="Factories\DefendImplementFactoryTests.cs" />

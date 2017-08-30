@@ -12,7 +12,6 @@ namespace StarCommander.Factories.Tests
 {
     public class FleetConfigerationFactoryTests
     {
-        //Todo: Add Factory Test
         [Fact()]
         public void CreateBalancedShipsFleetConfigurationTest()
         {

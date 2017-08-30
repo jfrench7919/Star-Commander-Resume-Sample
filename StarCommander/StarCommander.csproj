@@ -40,20 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BattleField\BattleField.cs" />
-    <Compile Include="BattleField\IBattleField.cs" />
+    <Compile Include="BattleFields\BattleField.cs" />
+    <Compile Include="BattleFields\IBattleField.cs" />
     <Compile Include="AttackResults\AttackAggregator.cs" />
     <Compile Include="AttackResults\AttackResult.cs" />
     <Compile Include="AttackResults\IDefender.cs" />
     <Compile Include="AttackResults\IAttacker.cs" />
+    <Compile Include="BattleResult\BattleResults.cs" />
     <Compile Include="Configeration\BattleFieldConfigeration.cs" />
     <Compile Include="Configeration\FleetConfigeration.cs" />
     <Compile Include="Configeration\IBattleFieldConfigeration.cs" />
     <Compile Include="Configeration\IFleetConfigeration.cs" />
     <Compile Include="Factories\FleetConfigerationFactory.cs" />
     <Compile Include="Factories\FleetFactory.cs" />
-    <Compile Include="Fleet\Fleet.cs" />
-    <Compile Include="Fleet\IFleet.cs" />
+    <Compile Include="Fleets\Fleet.cs" />
+    <Compile Include="Fleets\IFleet.cs" />
     <Compile Include="Factories\AttackImplementFactory.cs" />
     <Compile Include="Factories\BattleFieldFactory.cs" />
     <Compile Include="Factories\DefendImplementFactory.cs" />

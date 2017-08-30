@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using StarCommander.Types;
 using StarCommander.Ships;
 using StarCommander.AttackImplement;
-using StarCommander.BattleField;
+using StarCommander.BattleFields;
 
-namespace StarCommander.Fleet
+namespace StarCommander.Fleets
 {
     public interface IFleet
     {

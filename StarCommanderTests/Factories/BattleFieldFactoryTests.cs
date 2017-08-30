@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StarCommander.BattleField;
+using StarCommander.BattleFields;
 using StarCommander.Types;
 
 namespace StarCommander.Factories.Tests

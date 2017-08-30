@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 using StarCommander.AttackImplement;
 using StarCommander.DefendImplement;
 using StarCommander.UpgradeImplement;
-using StarCommander.Fleet;
+using StarCommander.Fleets;
 using StarCommander.Types;
 using StarCommander.AttackResults;
+using StarCommander.BattleResult;
 
 namespace StarCommander.Ships
 {
@@ -134,7 +135,7 @@ namespace StarCommander.Ships
 
         public void ReportDistruction()
         {
-            //todo: add pub sub
+            BattleResults.Messages.Add("A ship was destroyed!");
         }
 
         public void Advance()

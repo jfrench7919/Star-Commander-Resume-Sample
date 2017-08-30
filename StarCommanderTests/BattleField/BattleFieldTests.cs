@@ -1,5 +1,5 @@
 ﻿using Xunit;
-using StarCommander.BattleField;
+using StarCommander.BattleFields;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StarCommander.Factories;
 using StarCommander.Types;
-using StarCommander.Fleet;
+using StarCommander.Fleets;
 using StarCommander.Ships;
 
 namespace StarCommander.BattleField.Tests
@@ -22,10 +22,14 @@ namespace StarCommander.BattleField.Tests
             IFleet fleet2 = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.StrongShipsFirst);
             IFleet fleet3 = FleetFactory.CreateFleet(FleetConfigerationType.HeavyShips, BattleStratagyType.NoPriority);
             IFleet fleet4 = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.WeekShipsFirst);
+            IFleet fleet5 = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.NoPriority);
+            IFleet fleet6 = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.NoPriority);
             fleet1.EnterField(battleField);
             fleet2.EnterField(battleField);
             fleet3.EnterField(battleField);
             fleet4.EnterField(battleField);
+            fleet5.EnterField(battleField);
+            fleet6.EnterField(battleField);
             battleField.StartBattle();
             Assert.True(battleField.Fleets.Where(x => x.WorkingStarShips.Count() > 0).Count() == 1);
             bool result = battleField.CheckForVictory();

@@ -1,7 +1,7 @@
 ﻿using Xunit;
 using StarCommander.Factories;
 using StarCommander.Types;
-using StarCommander.Fleet;
+using StarCommander.Fleets;
 
 namespace StarCommander.AttackImplement.Tests
 {

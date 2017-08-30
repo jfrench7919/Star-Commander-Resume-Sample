@@ -36,8 +36,6 @@ namespace StarCommander.Factories.Tests
             Assert.Equal(null, ShipFactory.CreateShip(null, null));
         }
 
-
-        //Todo: Start some better test for implemented StarShips
         [Fact()]
         public void CreateShipConfigurationFighterBalancedTest()
         {

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 using StarCommander.AttackImplement;
 using StarCommander.Ships;
 using StarCommander.Types;
-using StarCommander.BattleField;
+using StarCommander.BattleFields;
+using StarCommander.BattleResult;
 
-namespace StarCommander.Fleet
+namespace StarCommander.Fleets
 {
     public class Fleet : IFleet
     {
@@ -43,7 +44,6 @@ namespace StarCommander.Fleet
 
         public void AttacKEnemyShips(IFleet enemyFleet)
         {
-            //Todo: Add this as a list available to the object
             foreach (IStarShip ship in WorkingStarShips)
             {
                 ship.Attack(enemyFleet, BattleStratagyType);
@@ -65,17 +65,19 @@ namespace StarCommander.Fleet
             if (battleField.NumberOfFleetSlotsAvailable > this.Size)
             {
                 battleField.Fleets.Add(this);
+                BattleResults.Messages.Add("The new fleet has entered the field!");
             }
         }
 
         public void LeaveField(IBattleField battleField)
         {
             battleField.Fleets.Remove(this);
+            BattleResults.Messages.Add("The fleet has left the field!");
         }
 
         public void ReportDestruction()
         {
-            //todo: add pub sub
+            BattleResults.Messages.Add("A fleet was destroyed!");
         }
     }
 }

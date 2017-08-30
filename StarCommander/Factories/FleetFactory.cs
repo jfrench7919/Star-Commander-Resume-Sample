@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StarCommander.Fleet;
+using StarCommander.Fleets;
 using StarCommander.Types;
 using StarCommander.Configeration;
 
@@ -16,17 +16,17 @@ namespace StarCommander.Factories
             switch (fleetConfigerationType)
             {
                 case FleetConfigerationType.SmallShips:
-                    IFleet smallShips = new Fleet.Fleet();
+                    IFleet smallShips = new Fleet();
                     SetSmallShipsDefaultValues(smallShips, battleStratagyType);
                     BuildSmallShipsCollection(smallShips, fleetConfigerationType);
                     return smallShips;
                 case FleetConfigerationType.BalancedShips:
-                    IFleet balancedShips = new Fleet.Fleet();
+                    IFleet balancedShips = new Fleet();
                     SetBalancedShipsDefaultValues(balancedShips, battleStratagyType);
                     BuildBalancedShipsCollection(balancedShips, fleetConfigerationType);
                     return balancedShips;
                 case FleetConfigerationType.HeavyShips:
-                    IFleet heavyShips = new Fleet.Fleet();
+                    IFleet heavyShips = new Fleet();
                     SetHeavyShipsDefaultValues(heavyShips, battleStratagyType);
                     BuildHeavyShipsCollection(heavyShips, fleetConfigerationType);
                     return heavyShips;

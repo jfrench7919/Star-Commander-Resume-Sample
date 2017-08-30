@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StarCommander.Fleet;
+using StarCommander.Fleets;
+using StarCommander.BattleResult;
 
-namespace StarCommander.BattleField
+namespace StarCommander.BattleFields
 {
     public class BattleField : IBattleField
     {
@@ -32,6 +33,7 @@ namespace StarCommander.BattleField
 
         public void StartBattle()
         {
+            BattleResults.Messages.Add("The battle has started!");
             StartRound(GetFleetWithTurnLeft());
         }
 
@@ -44,20 +46,24 @@ namespace StarCommander.BattleField
                 AdvanceRound(myFleet);
                 StartRound(GetFleetWithTurnLeft());
             }
-            else
-            {
-                ReportBattleWon();
-            }
         }
+
+        public Random rnd { get; set; } = new Random();
 
         private IFleet GetFirstFleetsEnemy(IFleet myFleet)
         {
-            return Fleets.Where(x => x != myFleet && x.WorkingStarShips.Count() > 0).FirstOrDefault();
+            
+            var availableFleets = Fleets.Where(x => x != myFleet && x.WorkingStarShips.Count() > 0).ToList();
+            var index = rnd.Next(1, availableFleets.Count());
+            return availableFleets[index-1];
         }
         
         private IFleet GetFleetWithTurnLeft()
         {
-            return Fleets.Where(x => x.WorkingStarShips.Count() > 0).OrderBy(x => x.NumberOfRoundsCompleted).FirstOrDefault();
+            
+            var availableFleets = Fleets.Where(x => x.WorkingStarShips.Count() > 0).OrderBy(x => x.NumberOfRoundsCompleted).ToList();
+            var index = rnd.Next(1, availableFleets.Count());
+            return availableFleets[index-1];
         }
 
         public bool CheckForVictory()
@@ -75,7 +81,8 @@ namespace StarCommander.BattleField
 
         private void ReportBattleWon()
         {
-            //todo: add pub sub
+            BattleResults.Messages.Add("The battle has been won only one fleet survives");
+            BattleResults.Messages.Add("The surviving fleet still has " + Fleets.Where(x => x.WorkingStarShips.Count > 0).FirstOrDefault().WorkingStarShips.Count + " ship's left!");
         }
     }
 }

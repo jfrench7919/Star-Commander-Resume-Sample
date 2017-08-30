@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StarCommander.BattleField;
+using StarCommander.BattleFields;
 using StarCommander.Types;
 using StarCommander.Configeration;
 
@@ -16,15 +16,15 @@ namespace StarCommander.Factories
             switch (battleFieldType)
             {
                 case BattleFieldType.Large:
-                    IBattleField large = new BattleField.BattleField();
+                    IBattleField large = new BattleField();
                     SetLargeDefaultValues(large);
                     return large;
                 case BattleFieldType.Medium:
-                    IBattleField medium = new BattleField.BattleField();
+                    IBattleField medium = new BattleField();
                     SetMediumDefaultValues(medium);
                     return medium;
                 case BattleFieldType.Small:
-                    IBattleField small = new BattleField.BattleField();
+                    IBattleField small = new BattleField();
                     SetSmallDefaultValues(small);
                     return small;
                 default:

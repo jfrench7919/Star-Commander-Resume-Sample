@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StarCommander.Factories;
 using StarCommander.Types;
-using StarCommander.Fleet;
+using StarCommander.Fleets;
 using StarCommander.AttackResults;
 
 namespace StarCommander.Ships.Tests

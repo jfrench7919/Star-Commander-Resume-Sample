@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StarCommander.Fleet;
+using StarCommander.Fleets;
 
-namespace StarCommander.BattleField
+namespace StarCommander.BattleFields
 {
     public interface IBattleField
     {

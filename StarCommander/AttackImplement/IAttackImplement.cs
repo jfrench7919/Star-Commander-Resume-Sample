@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using StarCommander.Implement;
 using StarCommander.Ships;
 using StarCommander.Types;
-using StarCommander.Fleet;
+using StarCommander.Fleets;
 
 namespace StarCommander.AttackImplement
 {
