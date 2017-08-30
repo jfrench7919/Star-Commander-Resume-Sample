@@ -22,6 +22,8 @@ namespace StarCommander.Fleet
         public int NumberOfShipSlots { get; set; }
         public int NumberOfRoundsCompleted { get; set; }
         public List<IStarShip> StarShips { get; set; }
+        public List<IStarShip> DiabledStarShips { get { return StarShips.Where(x => x.Health == 0).ToList(); } }
+        public List<IStarShip> WorkingStarShips { get { return StarShips.Where(x => x.Health > 0).ToList(); } }
 
         public int Size
         {
@@ -41,9 +43,10 @@ namespace StarCommander.Fleet
 
         public void AttacKEnemyShips(IFleet enemyFleet)
         {
-            foreach (IStarShip ship in StarShips)
+            //Todo: Add this as a list available to the object
+            foreach (IStarShip ship in WorkingStarShips)
             {
-                ship.AttackEnemyShips(enemyFleet, BattleStratagyType);
+                ship.Attack(enemyFleet, BattleStratagyType);
             }
 
             CheckEnemyFleetHealth(enemyFleet);
@@ -51,7 +54,7 @@ namespace StarCommander.Fleet
 
         private static void CheckEnemyFleetHealth(IFleet enemyFleet)
         {
-            if (enemyFleet.StarShips.Sum(x => x.Health) == 0)
+            if (enemyFleet.WorkingStarShips.Count() == 0)
             {
                 enemyFleet.ReportDestruction();
             }
@@ -72,7 +75,7 @@ namespace StarCommander.Fleet
 
         public void ReportDestruction()
         {
-            throw new NotImplementedException();
+            //todo: add pub sub
         }
     }
 }

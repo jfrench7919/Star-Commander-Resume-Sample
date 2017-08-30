@@ -13,11 +13,9 @@ namespace StarCommander.AttackImplement
     public interface IAttackImplement : IImplement
     {
         Nullable<int> Ammo { get; set; }
-        void Fire(IStarShip shipToAttcack);
-
         bool AmmoAvailable { get; }
-        
-        void AttackEnemyShips(IFleet enemyFleet, BattleStratagyType battleStratagyType);
+
+        void Fire(IFleet enemyFleet, BattleStratagyType battleStratagyType);
         IStarShip GetTargetShip(BattleStratagyType battleStratagyType, IFleet enemyFleet);
     }
 }

@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using StarCommander.Implement;
 using StarCommander.Ships;
 using StarCommander.Types;
 using StarCommander.Fleet;
+using StarCommander.AttackResults;
 
 namespace StarCommander.AttackImplement
 {
@@ -21,13 +18,9 @@ namespace StarCommander.AttackImplement
         public int ShipHealthModification { get; set; }
         public int ShipArmorModification { get; set; }
 
-        public void Fire(IStarShip shipToAttcack)
-        {
-            Ammo = Ammo - 1;
-            var damage = CalculateDamage();
-        }
+        
 
-        private int CalculateDamage()
+        public virtual int CalculateDamage()
         {
             Random r = new Random();
             return Power * r.Next(2, 4);
@@ -48,12 +41,24 @@ namespace StarCommander.AttackImplement
             }
         }
 
-        public void AttackEnemyShips(IFleet enemyFleet, BattleStratagyType battleStratagyType)
+        public void Fire(IFleet enemyFleet, BattleStratagyType battleStratagyType)
         {
-            IStarShip ship =  GetTargetShip(battleStratagyType, enemyFleet);
-            if(ship != null)
+            if (AmmoAvailable)
             {
-                ship.TakeDamage(CalculateDamage());
+                if (Ammo.HasValue)
+                {
+                    Ammo = Ammo - 1;
+                }
+                
+                IStarShip ship = GetTargetShip(battleStratagyType, enemyFleet);
+                if (ship != null)
+                {
+                    AttackResult result = new AttackResult { Damage = CalculateDamage() };
+                    AttackAggregator battleAttackAggregator = new AttackAggregator();
+                    battleAttackAggregator.RegisterObserver(ship);
+                    battleAttackAggregator.NotifyObservers(result);
+                    battleAttackAggregator.UnregisterObserver(ship);
+                }
             }
         }
 
@@ -62,13 +67,13 @@ namespace StarCommander.AttackImplement
             switch (battleStratagyType)
             {
                 case BattleStratagyType.WeekShipsFirst:
-                    return enemyFleet.StarShips.Where(x => x.Health != 0).OrderBy(x => x.Power).OrderBy(x => x.Health).OrderBy(x => x.Armor).FirstOrDefault();
+                    return enemyFleet.WorkingStarShips.OrderBy(x => x.Power).OrderBy(x => x.Health).OrderBy(x => x.Armor).FirstOrDefault();
                 case BattleStratagyType.StrongShipsFirst:
-                    return enemyFleet.StarShips.Where(x => x.Health != 0).OrderByDescending(x => x.Power).OrderByDescending(x => x.Health).OrderByDescending(x => x.Armor).FirstOrDefault();
+                    return enemyFleet.WorkingStarShips.OrderByDescending(x => x.Power).OrderByDescending(x => x.Health).OrderByDescending(x => x.Armor).FirstOrDefault();
                 case BattleStratagyType.NoPriority:
-                    return enemyFleet.StarShips.Where(x => x.Health != 0).OrderByDescending(x => x.Health).FirstOrDefault();
+                    return enemyFleet.WorkingStarShips.OrderByDescending(x => x.Health).FirstOrDefault();
                 default:
-                    return enemyFleet.StarShips.Where(x => x.Health != 0).OrderByDescending(x => x.Health).FirstOrDefault();
+                    return enemyFleet.WorkingStarShips.OrderByDescending(x => x.Health).FirstOrDefault();
             }
         }
     }

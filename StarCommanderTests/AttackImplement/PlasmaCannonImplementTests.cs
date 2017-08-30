@@ -1,13 +1,7 @@
 ﻿using Xunit;
-using StarCommander.AttackImplement;
 using StarCommander.Factories;
 using StarCommander.Types;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using StarCommander.Ships;
+using StarCommander.Fleet;
 
 namespace StarCommander.AttackImplement.Tests
 {
@@ -59,10 +53,11 @@ namespace StarCommander.AttackImplement.Tests
         public void PlasmaCannonAmmoUnAvailableTest()
         {
             IAttackImplement ai = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PlasmaCannon);
+            IFleet fleet = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.WeekShipsFirst);
             var shots = ai.Ammo;
             for (int i = 0; i < shots; i++)
             {
-                ai.Fire(new Fighter());
+                ai.Fire(fleet, BattleStratagyType.StrongShipsFirst);
             }
             Assert.False(ai.AmmoAvailable);
         }

@@ -1,13 +1,7 @@
 ﻿using Xunit;
-using StarCommander.AttackImplement;
 using StarCommander.Factories;
 using StarCommander.Types;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using StarCommander.Ships;
+using StarCommander.Fleet;
 
 namespace StarCommander.AttackImplement.Tests
 {
@@ -53,9 +47,10 @@ namespace StarCommander.AttackImplement.Tests
         public void LaserAmmoNeverUnAvailableTest()
         {
             IAttackImplement ai = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Laser);
+            IFleet fleet = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.WeekShipsFirst);
             for (int i = 0; i < 600; i++)
             {
-                ai.Fire(new Fighter());
+                ai.Fire(fleet, BattleStratagyType.StrongShipsFirst);
             }
             Assert.True(ai.AmmoAvailable);
             Assert.False(ai.Ammo.HasValue);

@@ -16,5 +16,6 @@ namespace StarCommander.BattleField
         void StartBattle();
         void AdvanceRound(IFleet myFleet);
         void StartRound(IFleet myFleet);
+        bool CheckForVictory();
     }
 }

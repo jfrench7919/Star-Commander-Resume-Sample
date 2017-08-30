@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using StarCommander.Factories;
 using StarCommander.Types;
 using StarCommander.Fleet;
+using StarCommander.AttackResults;
 
 namespace StarCommander.Ships.Tests
 {
@@ -19,7 +20,8 @@ namespace StarCommander.Ships.Tests
             IStarShip starShip = ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Light);
             var oHealth = starShip.Health;
             int damageAmount = starShip.Armor + 20;
-            starShip.TakeDamage(damageAmount);
+            AttackResult attackResult = new AttackResult { Damage = damageAmount };
+            starShip.TakeDamage(attackResult);
             Assert.Equal(oHealth - 20, starShip.Health);
             Assert.Equal(0, starShip.Armor);
         }
@@ -29,7 +31,8 @@ namespace StarCommander.Ships.Tests
         {
             IStarShip starShip = ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Light);
             int damageAmount = 300;
-            starShip.TakeDamage(damageAmount);
+            AttackResult attackResult = new AttackResult { Damage = damageAmount };
+            starShip.TakeDamage(attackResult);
             Assert.Equal(0, starShip.Armor);
         }
 
@@ -38,7 +41,8 @@ namespace StarCommander.Ships.Tests
         {
             IStarShip starShip = ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Light);
             int damageAmount = 9000;
-            starShip.TakeDamage(damageAmount);
+            AttackResult attackResult = new AttackResult { Damage = damageAmount };
+            starShip.TakeDamage(attackResult);
             Assert.Equal(0, starShip.Health);
         }
 
@@ -55,7 +59,7 @@ namespace StarCommander.Ships.Tests
             IStarShip myship = ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Light);
             IFleet enemyfleet = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.WeekShipsFirst);
             var oTotalHealthAndArmor = enemyfleet.StarShips.Sum(x => x.Health) + enemyfleet.StarShips.Sum(x => x.Armor);
-            myship.AttackEnemyShips(enemyfleet, BattleStratagyType.WeekShipsFirst);
+            myship.Attack(enemyfleet, BattleStratagyType.WeekShipsFirst);
             var newTotalHealthAndArmor = enemyfleet.StarShips.Sum(x => x.Health) + enemyfleet.StarShips.Sum(x => x.Armor);
             var shipsDestroyed = enemyfleet.StarShips.Where(x => x.Health == 0).ToList();
             Assert.True(oTotalHealthAndArmor > newTotalHealthAndArmor);

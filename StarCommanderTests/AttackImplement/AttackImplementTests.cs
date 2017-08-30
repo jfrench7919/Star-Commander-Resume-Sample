@@ -34,6 +34,15 @@ namespace StarCommander.AttackImplement.Tests
         }
 
         [Fact()]
+        public void GetNoPriorityTargetShipTest()
+        {
+            IFleet fleet = FleetFactory.CreateFleet(FleetConfigerationType.HeavyShips, BattleStratagyType.NoPriority);
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Laser);
+            var ship = attackImplement.GetTargetShip(BattleStratagyType.NoPriority, fleet);
+            Assert.IsType<Destroyer>(ship);
+        }
+
+        [Fact()]
         public void GetTargetShipTest()
         {
             IFleet fleet = FleetFactory.CreateFleet(FleetConfigerationType.HeavyShips, BattleStratagyType.NoPriority);
@@ -43,13 +52,13 @@ namespace StarCommander.AttackImplement.Tests
         }
 
         [Fact()]
-        public void AttackEnemyShipsTest()
+        public void FireTest()
         {
             IFleet fleet = FleetFactory.CreateFleet(FleetConfigerationType.HeavyShips, BattleStratagyType.NoPriority);
             var oTotalHealthAndArmor = fleet.StarShips.Sum(x => x.Health) + fleet.StarShips.Sum(x => x.Armor);
             IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Laser);
 
-            attackImplement.AttackEnemyShips(fleet, BattleStratagyType.WeekShipsFirst);
+            attackImplement.Fire(fleet, BattleStratagyType.WeekShipsFirst);
             var newTotalHealthAndArmor = fleet.StarShips.Sum(x => x.Health) + fleet.StarShips.Sum(x => x.Armor);
             Assert.True(oTotalHealthAndArmor > newTotalHealthAndArmor);
         }

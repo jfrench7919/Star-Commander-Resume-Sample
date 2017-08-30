@@ -28,7 +28,6 @@ namespace StarCommander.BattleField
         public void AdvanceRound(IFleet myFleet)
         {
             myFleet.NumberOfRoundsCompleted++;
-            StartRound(GetFleetWithTurnLeft());
         }
 
         public void StartBattle()
@@ -43,6 +42,7 @@ namespace StarCommander.BattleField
                 IFleet enemyFleet = GetFirstFleetsEnemy(myFleet);
                 myFleet.AttacKEnemyShips(enemyFleet);
                 AdvanceRound(myFleet);
+                StartRound(GetFleetWithTurnLeft());
             }
             else
             {
@@ -52,17 +52,17 @@ namespace StarCommander.BattleField
 
         private IFleet GetFirstFleetsEnemy(IFleet myFleet)
         {
-            return Fleets.Where(x => x != myFleet).FirstOrDefault();
+            return Fleets.Where(x => x != myFleet && x.WorkingStarShips.Count() > 0).FirstOrDefault();
         }
         
         private IFleet GetFleetWithTurnLeft()
         {
-            return Fleets.OrderBy(x => x.NumberOfRoundsCompleted).FirstOrDefault();
+            return Fleets.Where(x => x.WorkingStarShips.Count() > 0).OrderBy(x => x.NumberOfRoundsCompleted).FirstOrDefault();
         }
 
-        private bool CheckForVictory()
+        public bool CheckForVictory()
         {
-            if (Fleets.Where(x => x.StarShips.Sum(s => s.Health) >= 0).Count() < 2)
+            if (Fleets.Where(x => x.WorkingStarShips.Count() > 0).Count() == 1)
             {
                 ReportBattleWon();
                 return true;
@@ -75,7 +75,7 @@ namespace StarCommander.BattleField
 
         private void ReportBattleWon()
         {
-            throw new NotImplementedException();
+            //todo: add pub sub
         }
     }
 }

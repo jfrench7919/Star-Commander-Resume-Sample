@@ -8,6 +8,7 @@ using StarCommander.DefendImplement;
 using StarCommander.UpgradeImplement;
 using StarCommander.Fleet;
 using StarCommander.Types;
+using StarCommander.AttackResults;
 
 namespace StarCommander.Ships
 {
@@ -32,6 +33,10 @@ namespace StarCommander.Ships
         public int NumberOfAttackSlots { get; set; }
         public int NumberOfDefendSlots { get; set; }
         public int NumberOfUpgradeSlots { get; set; }
+        public List<IAttackImplement> AttackImplements { get; set; }
+        public List<IDefendImplement> DefendImplements { get; set; }
+        public List<IUpgradeImplement> UpgradeImplements { get; set; }
+
         public int NumberOfAttackSlotsAvailable
         {
             get
@@ -39,6 +44,7 @@ namespace StarCommander.Ships
                 return NumberOfAttackSlots - AttackImplements.Sum(x => x.Size);
             }
         }
+
         public int NumberOfDefendSlotsAvailable
         {
             get
@@ -46,6 +52,7 @@ namespace StarCommander.Ships
                 return NumberOfDefendSlots - DefendImplements.Sum(x => x.Size);
             }
         }
+
         public int NumberOfUpgradeSlotsAvailable
         {
             get
@@ -53,34 +60,11 @@ namespace StarCommander.Ships
                 return NumberOfUpgradeSlots - UpgradeImplements.Sum(x => x.Size);
             }
         }
-        public List<IAttackImplement> AttackImplements { get; set; }
-        public List<IDefendImplement> DefendImplements { get; set; }
-        public List<IUpgradeImplement> UpgradeImplements { get; set; }
 
-        public void Advance()
+        public void TakeDamage(AttackResult result)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Retreat()
-        {
-            throw new NotImplementedException();
-        }
-        
-        public void Attack()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Deffend()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void TakeDamage(int damageAmount)
-        {
-            damageAmount = DamageArmor(damageAmount);
-            DamageHealth(damageAmount);
+            result.Damage = DamageArmor(result.Damage);
+            DamageHealth(result.Damage);
             CheckHealth();
         }
 
@@ -98,11 +82,11 @@ namespace StarCommander.Ships
             }
         }
 
-        public void AttackEnemyShips(IFleet enemyFleet, BattleStratagyType battleStratagyType)
+        public void Attack(IFleet enemyFleet, BattleStratagyType battleStratagyType)
         {
             foreach (IAttackImplement i in availableAttackImplements)
             {
-                i.AttackEnemyShips(enemyFleet, battleStratagyType);
+                i.Fire(enemyFleet, battleStratagyType);
             }
         }
 
@@ -150,7 +134,22 @@ namespace StarCommander.Ships
 
         public void ReportDistruction()
         {
-            //throw new NotImplementedException();
+            //todo: add pub sub
+        }
+
+        public void Advance()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Retreat()
+        {
+            throw new NotImplementedException();
+        }
+        
+        public void Deffend()
+        {
+            throw new NotImplementedException();
         }
     }
 }

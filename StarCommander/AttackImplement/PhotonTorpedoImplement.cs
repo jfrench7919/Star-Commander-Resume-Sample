@@ -12,5 +12,11 @@ namespace StarCommander.AttackImplement
         {
 
         }
+
+        public override int CalculateDamage()
+        {
+            Random r = new Random();
+            return Power * r.Next(2, 3);
+        }
     }
 }

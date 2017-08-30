@@ -17,6 +17,8 @@ namespace StarCommander.Fleet
         int NumberOfRoundsCompleted { get; set; }
         int NumberOfShipSlots { get; set; }
         List<IStarShip> StarShips { get; set; }
+        List<IStarShip> DiabledStarShips { get; }
+        List<IStarShip> WorkingStarShips { get; }
         int NumberOfShipSlotsAvailable { get; }
         void AttacKEnemyShips(IFleet enemyFleet);
         void EnterField(IBattleField battleField);

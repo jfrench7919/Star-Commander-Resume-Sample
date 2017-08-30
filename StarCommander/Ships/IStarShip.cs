@@ -8,10 +8,11 @@ using StarCommander.DefendImplement;
 using StarCommander.UpgradeImplement;
 using StarCommander.Fleet;
 using StarCommander.Types;
+using StarCommander.AttackResults;
 
 namespace StarCommander.Ships
 {
-    public interface IStarShip
+    public interface IStarShip : IDefender
     {
         int Size { get; set; }
         int Speed { get; set; }
@@ -29,12 +30,12 @@ namespace StarCommander.Ships
         int NumberOfUpgradeSlotsAvailable { get; }
         List<IAttackImplement> availableAttackImplements { get; }
 
+        void Attack(IFleet enemyFleet, BattleStratagyType battleStratagyType);
         void Advance();
         void Retreat();
-        void Attack();
         void Deffend();
-        void TakeDamage(int damageAmount);
+        //void TakeDamage(AttackResult result);
         void ReportDistruction();
-        void AttackEnemyShips(IFleet enemyFleet, BattleStratagyType battleStratagyType);
+        
     }
 }

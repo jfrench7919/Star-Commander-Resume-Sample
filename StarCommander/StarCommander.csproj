@@ -42,6 +42,10 @@
   <ItemGroup>
     <Compile Include="BattleField\BattleField.cs" />
     <Compile Include="BattleField\IBattleField.cs" />
+    <Compile Include="AttackResults\AttackAggregator.cs" />
+    <Compile Include="AttackResults\AttackResult.cs" />
+    <Compile Include="AttackResults\IDefender.cs" />
+    <Compile Include="AttackResults\IAttacker.cs" />
     <Compile Include="Configeration\BattleFieldConfigeration.cs" />
     <Compile Include="Configeration\FleetConfigeration.cs" />
     <Compile Include="Configeration\IBattleFieldConfigeration.cs" />
@@ -93,8 +97,6 @@
     <Compile Include="Types\AttackImplementType.cs" />
     <Compile Include="Types\ShipType.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Observers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
