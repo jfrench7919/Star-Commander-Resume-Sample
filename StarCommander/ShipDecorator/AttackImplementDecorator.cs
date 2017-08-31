@@ -19,18 +19,22 @@ namespace StarCommander.ShipDecorator
                 ship.Speed = ship.Speed + attackImplement.ShipSpeedModification;
                 ship.Power = ship.Power + attackImplement.ShipPowerModification;
                 ship.Armor = ship.Armor + attackImplement.ShipArmorModification;
+
                 if (ship.Health < 0)
                 {
                     ship.Health = 0;
                 }
+
                 if (ship.Speed < 0)
                 {
                     ship.Speed = 0;
                 }
+
                 if (ship.Power < 0)
                 {
                     ship.Power = 0;
                 }
+
                 if (ship.Armor < 0)
                 {
                     ship.Armor = 0;

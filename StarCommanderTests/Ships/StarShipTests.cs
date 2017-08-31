@@ -59,10 +59,29 @@ namespace StarCommander.Ships.Tests
             IStarShip myship = ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Light);
             IFleet enemyfleet = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.WeekShipsFirst);
             var oTotalHealthAndArmor = enemyfleet.StarShips.Sum(x => x.Health) + enemyfleet.StarShips.Sum(x => x.Armor);
-            myship.Attack(enemyfleet, BattleStratagyType.WeekShipsFirst);
+
+            //has random miss rate
+            for (int i = 0; i < 100; i++)
+            {
+                myship.Attack(enemyfleet, BattleStratagyType.WeekShipsFirst);
+            }
+
             var newTotalHealthAndArmor = enemyfleet.StarShips.Sum(x => x.Health) + enemyfleet.StarShips.Sum(x => x.Armor);
             var shipsDestroyed = enemyfleet.StarShips.Where(x => x.Health == 0).ToList();
             Assert.True(oTotalHealthAndArmor > newTotalHealthAndArmor);
+        }
+
+        [Fact()]
+        public void StarShipTest()
+        {
+            IStarShip ship = ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Heavy);
+            Assert.True(ship.availableAttackImplements.Count > 0);
+            Assert.True(ship.AttackImplements.Count > 0);
+            Assert.True(ship.DefendImplements.Count > 0);
+            Assert.True(ship.UpgradeImplements.Count > 0);
+            Assert.True(ship.NumberOfAttackSlotsAvailable ==  ship.NumberOfAttackSlots - ship.AttackImplements.Sum(x => x.Size));
+            Assert.True(ship.NumberOfDefendSlotsAvailable == ship.NumberOfDefendSlots - ship.DefendImplements.Sum(x => x.Size));
+            Assert.True(ship.NumberOfUpgradeSlotsAvailable == ship.NumberOfUpgradeSlots - ship.UpgradeImplements.Sum(x => x.Size));
         }
     }
 }

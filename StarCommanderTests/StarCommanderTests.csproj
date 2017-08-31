@@ -63,6 +63,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AttackImplement\AttackImplementTests.cs" />
+    <Compile Include="AttackResults\AttackAggregatorTests.cs" />
     <Compile Include="BattleField\BattleFieldTests.cs" />
     <Compile Include="BattleResult\BattleResultsTests.cs" />
     <Compile Include="Factories\AttackImplementFactoryTests.cs" />

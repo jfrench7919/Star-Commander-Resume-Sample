@@ -7,6 +7,7 @@ using StarCommander.Implement;
 using StarCommander.Ships;
 using StarCommander.Types;
 using StarCommander.Fleets;
+using StarCommander.AttackResults;
 
 namespace StarCommander.AttackImplement
 {
@@ -16,6 +17,7 @@ namespace StarCommander.AttackImplement
         bool AmmoAvailable { get; }
 
         void Fire(IFleet enemyFleet, BattleStratagyType battleStratagyType);
-        IStarShip GetTargetShip(BattleStratagyType battleStratagyType, IFleet enemyFleet);
+        IStarShip GetTargetShip(BattleStratagyType? battleStratagyType, IFleet enemyFleet);
+        int CalculateDamage();
     }
 }

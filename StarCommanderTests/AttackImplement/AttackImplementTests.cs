@@ -47,7 +47,7 @@ namespace StarCommander.AttackImplement.Tests
         {
             IFleet fleet = FleetFactory.CreateFleet(FleetConfigerationType.HeavyShips, BattleStratagyType.NoPriority);
             IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Laser);
-            var ship = attackImplement.GetTargetShip(BattleStratagyType.NoPriority, fleet);
+            var ship = attackImplement.GetTargetShip(null, fleet);
             Assert.NotNull(ship);
         }
 
@@ -58,9 +58,22 @@ namespace StarCommander.AttackImplement.Tests
             var oTotalHealthAndArmor = fleet.StarShips.Sum(x => x.Health) + fleet.StarShips.Sum(x => x.Armor);
             IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Laser);
 
-            attackImplement.Fire(fleet, BattleStratagyType.WeekShipsFirst);
+            //Has A random miss rate
+            for (int i = 0; i < 100; i++)
+            {
+                attackImplement.Fire(fleet, BattleStratagyType.WeekShipsFirst);
+            }
+
             var newTotalHealthAndArmor = fleet.StarShips.Sum(x => x.Health) + fleet.StarShips.Sum(x => x.Armor);
             Assert.True(oTotalHealthAndArmor > newTotalHealthAndArmor);
+        }
+
+        [Fact()]
+        public void CalculateDamageTest()
+        {
+            IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Laser);
+            int maxvalue = attackImplement.Power * 4;
+            Assert.True(attackImplement.CalculateDamage() <= maxvalue);
         }
     }
 }

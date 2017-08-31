@@ -8,7 +8,7 @@ namespace StarCommander.AttackResults
 {
     public class AttackAggregator : IAttacker
     {
-        internal readonly List<IDefender> Observers = new List<IDefender>();
+        public readonly List<IDefender> Observers = new List<IDefender>();
 
         public void NotifyObservers(AttackResult result)
         {
@@ -23,11 +23,6 @@ namespace StarCommander.AttackResults
         public void UnregisterObserver(IDefender observer)
         {
             Observers.Remove(observer);
-        }
-
-        public void AddBattleResult(AttackResult result)
-        {
-            NotifyObservers(result);
         }
     }
 }

@@ -21,15 +21,7 @@ namespace StarCommander.AttackImplement
 
         private Random rnd { get; set; } = new Random();
 
-        public virtual int CalculateDamage()
-        {
-            
-            if (rnd.Next(0, 3) > 0)
-            {
-                return Power * rnd.Next(2, 4);
-            }
-            return 0;
-        }
+        public abstract int CalculateDamage();
 
         public bool AmmoAvailable
         {
@@ -67,7 +59,7 @@ namespace StarCommander.AttackImplement
             }
         }
 
-        public IStarShip GetTargetShip(BattleStratagyType battleStratagyType, IFleet enemyFleet)
+        public IStarShip GetTargetShip(BattleStratagyType? battleStratagyType, IFleet enemyFleet)
         {
             switch (battleStratagyType)
             {
