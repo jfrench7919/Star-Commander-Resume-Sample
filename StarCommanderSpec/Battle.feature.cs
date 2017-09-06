@@ -62,11 +62,11 @@ namespace StarCommanderSpec
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Exicute Battle", new string[] {
-                "mytag"}, SourceLine=4)]
+                "myBatttle"}, SourceLine=4)]
         public virtual void ExicuteBattle()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Exicute Battle", new string[] {
-                        "mytag"});
+                        "myBatttle"});
 #line 5
 this.ScenarioSetup(scenarioInfo);
 #line 6

@@ -1,7 +1,7 @@
 ﻿Feature: Battle
 	I want to be told the sum of the fleets who survive
 
-@mytag
+@myBatttle
 Scenario: Exicute Battle
 	Given I have entered 6 Fleets into the BattleField
 	When I call startBattle
