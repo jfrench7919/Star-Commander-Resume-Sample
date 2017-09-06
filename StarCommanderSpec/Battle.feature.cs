@@ -74,7 +74,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 7
  testRunner.When("I call startBattle", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 8
- testRunner.Then("the result should be 1 Fleet with health greater than zero", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the result should be 1 Fleet with working ships greater than zero", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

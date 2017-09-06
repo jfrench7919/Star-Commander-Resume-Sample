@@ -29,7 +29,7 @@ namespace StarCommanderSpec
             battleField.StartBattle();
         }
 
-        [Then(@"the result should be (.*) Fleet with health greater than zero")]
+        [Then(@"the result should be (.*) Fleet with working ships greater than zero")]
         public void ThenTheResultShouldBeFleetWithHealthGreaterThanZero(int fleetsWithWorkingShips)
         {
             int survivingFleets = battleField.Fleets.Where(x => x.WorkingStarShips.Count > 0).Count();
