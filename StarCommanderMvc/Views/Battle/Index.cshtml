@@ -1,0 +1,15 @@
+﻿@model StarCommanderMvc.Models.Battle
+@{
+    ViewBag.Title = "Battle";
+}
+
+<div class="form-group">
+    <h2>Battle Field Manager</h2>
+    @Html.Partial("BattleSettings", Model.battleSettings)
+    @Html.Partial("FleetSettings", Model.fleetSettings)
+    <div>
+        <input type="submit" value="Get battle results" class="btn btn-default" />
+    </div>
+    @Html.Partial("BattleResults", Model.battleResults)
+</div>
+

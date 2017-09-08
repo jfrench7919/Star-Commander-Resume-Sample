@@ -61,11 +61,11 @@ namespace StarCommanderSpec
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Exicute Battle", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("Execute Battle", new string[] {
                 "myBatttle"}, SourceLine=4)]
-        public virtual void ExicuteBattle()
+        public virtual void ExecuteBattle()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Exicute Battle", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Execute Battle", new string[] {
                         "myBatttle"});
 #line 5
 this.ScenarioSetup(scenarioInfo);

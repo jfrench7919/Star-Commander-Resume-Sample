@@ -8,8 +8,9 @@ namespace StarCommander.Types
 {
     public enum BattleStratagyType
     {
+        Select,
+        NoPriority,
         StrongShipsFirst,
-        WeekShipsFirst,
-        NoPriority
+        WeekShipsFirst
     }
 }

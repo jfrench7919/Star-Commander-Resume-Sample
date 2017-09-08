@@ -8,6 +8,7 @@ namespace StarCommander.Types
 {
     public enum BattleFieldType
     {
+        Select,
         Small,
         Medium,
         Large

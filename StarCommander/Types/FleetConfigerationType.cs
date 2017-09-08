@@ -8,8 +8,9 @@ namespace StarCommander.Types
 {
     public enum FleetConfigerationType
     {
-        SmallShips,
+        Select,
         BalancedShips,
-        HeavyShips
+        HeavyShips,
+        SmallShips
     }
 }
