@@ -12,7 +12,9 @@ namespace StarCommander.Fleets
 {
     public interface IFleet
     {
-        BattleStratagyType BattleStratagyType { get; set; }
+        BattleStratagyType myBattleStratagyType { get; set; }
+        FleetConfigerationType myFleetConfigerationType { get; set; }
+        string Name { get; set; }
         int Size { get; }
         int NumberOfRoundsCompleted { get; set; }
         int NumberOfShipSlots { get; set; }

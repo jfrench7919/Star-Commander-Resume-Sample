@@ -27,6 +27,23 @@ namespace StarCommander.BattleResult.Tests
         public void PostBattleResultsTest()
         {
             BattleResults.Messages.Clear();
+            IBattleField battleField = SetUpBattleField();
+            battleField.StartBattle();
+            var br1 = battleField.WorkingFleets.FirstOrDefault().WorkingStarShips.Count();
+            BattleResults.Messages.Clear();
+            battleField = SetUpBattleField();
+            battleField.StartBattle();
+            var br2 = battleField.WorkingFleets.FirstOrDefault().WorkingStarShips.Count();
+            BattleResults.Messages.Clear();
+            battleField = SetUpBattleField();
+            battleField.StartBattle();
+            var br3 = battleField.WorkingFleets.FirstOrDefault().WorkingStarShips.Count();
+            bool allThreeAreDiffrent = br1 != br2 && br2 != br3 && br1 != br3;
+            Assert.True(allThreeAreDiffrent);
+        }
+
+        private static IBattleField SetUpBattleField()
+        {
             IBattleField battleField = BattleFieldFactory.CreateBattleField(BattleFieldType.Large);
             IFleet fleet1 = FleetFactory.CreateFleet(FleetConfigerationType.SmallShips, BattleStratagyType.WeekShipsFirst);
             IFleet fleet2 = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.StrongShipsFirst);
@@ -40,9 +57,7 @@ namespace StarCommander.BattleResult.Tests
             fleet4.EnterField(battleField);
             fleet5.EnterField(battleField);
             fleet6.EnterField(battleField);
-            battleField.StartBattle();
-            List<string> battleResult = BattleResults.Messages;
-            Assert.True(battleResult.Count > 7);
+            return battleField;
         }
     }
 }

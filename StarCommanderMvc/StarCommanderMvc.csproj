@@ -50,9 +50,6 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="StarCommander">
-      <HintPath>..\..\..\..\..\Source\Repos\Star-Commander-Resume-Sample\StarCommander\bin\Debug\StarCommander.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -146,6 +143,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BattleController.cs" />
+    <Compile Include="Controllers\FleetSettingsController.cs" />
+    <Compile Include="Controllers\BattleSettingsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -155,6 +154,7 @@
     <Compile Include="Models\BattleSettings.cs" />
     <Compile Include="Models\FleetSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\SessionController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -192,9 +192,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Battle\Index.cshtml" />
-    <Content Include="Views\Battle\BattleResults.cshtml" />
-    <Content Include="Views\Battle\BattleSettings.cshtml" />
-    <Content Include="Views\Battle\FleetSettings.cshtml" />
+    <Content Include="Views\BattleSettings\Index.cshtml" />
+    <Content Include="Views\FleetSettings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -211,6 +210,12 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StarCommander\StarCommander.csproj">
+      <Project>{e067c853-52b8-49c4-9b33-b1236f92ed20}</Project>
+      <Name>StarCommander</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

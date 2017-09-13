@@ -11,7 +11,7 @@ namespace StarCommander.AttackImplement.Tests
         public void PlasmaCannonPowerBaseValueTest()
         {
             IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PlasmaCannon);
-            Assert.Equal(6, attackImplement.Power);
+            Assert.Equal(2, attackImplement.Power);
         }
 
         [Fact()]

@@ -181,3 +181,4 @@ C:\Users\Joshua French\Source\Repos\Star-Commander-Resume-Sample\StarCommanderMv
 C:\Users\Joshua French\Source\Repos\Star-Commander-Resume-Sample\StarCommanderMvc\obj\Debug\StarCommanderMvc.csproj.CoreCompileInputs.cache
 C:\Users\Joshua French\Source\Repos\Star-Commander-Resume-Sample\StarCommanderMvc\obj\Debug\StarCommanderMvc.dll
 C:\Users\Joshua French\Source\Repos\Star-Commander-Resume-Sample\StarCommanderMvc\obj\Debug\StarCommanderMvc.pdb
+C:\Users\Joshua French\Source\Repos\Star-Commander-Resume-Sample\StarCommanderMvc\bin\StarCommander.dll

@@ -11,7 +11,7 @@ namespace StarCommander.AttackImplement.Tests
         public void MissilePowerBaseValueTest()
         {
             IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Missile);
-            Assert.Equal(4, attackImplement.Power);
+            Assert.Equal(1, attackImplement.Power);
         }
 
         [Fact()]

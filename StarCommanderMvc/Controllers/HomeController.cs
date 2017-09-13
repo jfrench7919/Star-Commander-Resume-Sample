@@ -10,9 +10,7 @@ namespace StarCommanderMvc.Controllers
     {
         public ActionResult Index()
         {
-            List<string> test = new List<string>{ "1", "2" };
-            ViewBag.Worlds = "Monkey";
-            return View();
+            return RedirectToRoute("Default", new { controller = "Battle", action = "Index" });
         }
     }
 }

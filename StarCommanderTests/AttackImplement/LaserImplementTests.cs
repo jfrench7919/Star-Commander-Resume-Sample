@@ -12,7 +12,7 @@ namespace StarCommander.AttackImplement.Tests
         public void LaserPowerBaseValueTest()
         {
             IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Laser);
-            Assert.Equal(2, attackImplement.Power);
+            Assert.Equal(1, attackImplement.Power);
         }
 
         [Fact()]

@@ -83,9 +83,13 @@ namespace StarCommander.Ships
             }
         }
 
+        public string Name { get; set; }
+        public ShipType myShipType { get; set; }
+        public bool HasFiredThisLoop { get; set; }
+
         public void Attack(IFleet enemyFleet, BattleStratagyType battleStratagyType)
         {
-            foreach (IAttackImplement i in availableAttackImplements)
+            foreach (IAttackImplement i in availableAttackImplements.Take(10))
             {
                 i.Fire(enemyFleet, battleStratagyType);
             }
@@ -135,7 +139,7 @@ namespace StarCommander.Ships
 
         public void ReportDistruction()
         {
-            BattleResults.Messages.Add("A ship was destroyed!");
+            BattleResults.Messages.Add("The " + this.Name + " " + this.myShipType + " was destroyed!");
         }
 
         public void Advance()

@@ -35,16 +35,19 @@ namespace StarCommander.Factories
         private static void SetSmallDefaultValues(IBattleField small)
         {
             small.NumberOfFleetSlots = 24000;
+            small.myBattleFieldType = BattleFieldType.Small;
         }
 
         private static void SetMediumDefaultValues(IBattleField medium)
         {
             medium.NumberOfFleetSlots = 48000;
+            medium.myBattleFieldType = BattleFieldType.Medium;
         }
 
         private static void SetLargeDefaultValues(IBattleField large)
         {
             large.NumberOfFleetSlots = 72000;
+            large.myBattleFieldType = BattleFieldType.Large;
         }
     }
 }

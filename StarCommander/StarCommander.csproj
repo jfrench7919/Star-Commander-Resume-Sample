@@ -54,6 +54,7 @@
     <Compile Include="Factories\FleetConfigerationFactory.cs" />
     <Compile Include="Factories\FleetFactory.cs" />
     <Compile Include="Fleets\Fleet.cs" />
+    <Compile Include="Fleets\FleetNames.cs" />
     <Compile Include="Fleets\IFleet.cs" />
     <Compile Include="Factories\AttackImplementFactory.cs" />
     <Compile Include="Factories\BattleFieldFactory.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="DefendImplement\DefendImplement.cs" />
     <Compile Include="DefendImplement\IDefendImplement.cs" />
     <Compile Include="Implement\IImplement.cs" />
+    <Compile Include="Ships\ShipNames.cs" />
     <Compile Include="Types\BattleFieldType.cs" />
     <Compile Include="Types\BattleStratagyType.cs" />
     <Compile Include="Types\FleetConfigerationType.cs" />

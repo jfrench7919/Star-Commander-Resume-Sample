@@ -20,16 +20,19 @@ namespace StarCommander.Factories
                     var fighter = new Fighter();
                     SetFighterDefaultValues(fighter);
                     SetDecorations(fighter, shipType, configurationType);
+                    fighter.Name = NameGenerator();
                     return fighter;
                 case ShipType.Friget:
                     var friget = new Friget();
                     SetFrigetDefaultValues(friget);
                     SetDecorations(friget, shipType, configurationType);
+                    friget.Name = NameGenerator();
                     return friget;
                 case ShipType.Destroyer:
                     var destroyer = new Destroyer();
                     SetDestroyerDefaultValues(destroyer);
                     SetDecorations(destroyer, shipType, configurationType);
+                    destroyer.Name = NameGenerator();
                     return destroyer;
                 default:
                     return null;
@@ -69,6 +72,8 @@ namespace StarCommander.Factories
             ship.NumberOfAttackSlots = 15;
             ship.NumberOfDefendSlots = 10;
             ship.NumberOfUpgradeSlots = 5;
+            ship.Name = NameGenerator();
+            ship.myShipType = ShipType.Fighter;
         }
 
         private static void SetFrigetDefaultValues(IStarShip ship)
@@ -81,6 +86,8 @@ namespace StarCommander.Factories
             ship.NumberOfAttackSlots = 40;
             ship.NumberOfDefendSlots = 20;
             ship.NumberOfUpgradeSlots = 10;
+            ship.Name = NameGenerator();
+            ship.myShipType = ShipType.Friget;
         }
 
         private static void SetDestroyerDefaultValues(IStarShip ship)
@@ -93,6 +100,17 @@ namespace StarCommander.Factories
             ship.NumberOfAttackSlots = 150;
             ship.NumberOfDefendSlots = 50;
             ship.NumberOfUpgradeSlots = 20;
+            ship.Name = NameGenerator();
+            ship.myShipType = ShipType.Destroyer;
         }
+
+        private static string NameGenerator()
+        {
+            int maxIndex = ShipNames.names.Count() - 1;
+            int returnedRandom = rnd.Next(1, maxIndex);
+            return ShipNames.names[returnedRandom];
+        }
+
+        private static Random rnd = new Random();
     }
 }

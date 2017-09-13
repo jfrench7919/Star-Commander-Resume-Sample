@@ -14,6 +14,8 @@ namespace StarCommander.Ships
 {
     public interface IStarShip : IDefender
     {
+        string Name { get; set; }
+        ShipType myShipType { get; set; }
         int Size { get; set; }
         int Speed { get; set; }
         int Armor { get; set; }
@@ -29,7 +31,7 @@ namespace StarCommander.Ships
         List<IUpgradeImplement> UpgradeImplements { get; set; }
         int NumberOfUpgradeSlotsAvailable { get; }
         List<IAttackImplement> availableAttackImplements { get; }
-
+        bool HasFiredThisLoop { get; set; }
         void Attack(IFleet enemyFleet, BattleStratagyType battleStratagyType);
         void Advance();
         void Retreat();

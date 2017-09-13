@@ -19,7 +19,8 @@ namespace StarCommander.Fleets
             NumberOfShipSlots = 12000;
         }
 
-        public BattleStratagyType BattleStratagyType { get; set; }
+        public BattleStratagyType myBattleStratagyType { get; set; }
+        public FleetConfigerationType myFleetConfigerationType { get; set; }
         public int NumberOfShipSlots { get; set; }
         public int NumberOfRoundsCompleted { get; set; }
         public List<IStarShip> StarShips { get; set; }
@@ -42,14 +43,44 @@ namespace StarCommander.Fleets
             }
         }
 
+        public string Name { get; set; }
+
         public void AttacKEnemyShips(IFleet enemyFleet)
         {
-            foreach (IStarShip ship in WorkingStarShips)
+            bool resetLoopAfterFire = LessThan10LeftToFire();
+            Fire10Ship(enemyFleet);
+            ResetLoop(resetLoopAfterFire);
+            CheckEnemyFleetHealth(enemyFleet);
+        }
+
+        private void Fire10Ship(IFleet enemyFleet)
+        {
+            foreach (IStarShip ship in WorkingStarShips.Where(x => !x.HasFiredThisLoop).Take(10))
             {
-                ship.Attack(enemyFleet, BattleStratagyType);
+                ship.Attack(enemyFleet, myBattleStratagyType);
+                ship.HasFiredThisLoop = true;
+            }
+        }
+
+        private void ResetLoop(bool resetLoopAfterFire)
+        {
+            if (resetLoopAfterFire)
+            {
+                foreach (IStarShip s in WorkingStarShips)
+                {
+                    s.HasFiredThisLoop = false;
+                }
+            }
+        }
+
+        private bool LessThan10LeftToFire()
+        {
+            if (WorkingStarShips.Where(x => !x.HasFiredThisLoop).Count() < 10)
+            {
+                return true;
             }
 
-            CheckEnemyFleetHealth(enemyFleet);
+            return false;
         }
 
         private static void CheckEnemyFleetHealth(IFleet enemyFleet)
@@ -57,6 +88,7 @@ namespace StarCommander.Fleets
             if (enemyFleet.WorkingStarShips.Count() == 0)
             {
                 enemyFleet.ReportDestruction();
+                enemyFleet.StarShips.Clear();
             }
         }
 
@@ -65,19 +97,19 @@ namespace StarCommander.Fleets
             if (battleField.NumberOfFleetSlotsAvailable > this.Size)
             {
                 battleField.Fleets.Add(this);
-                BattleResults.Messages.Add("The new fleet has entered the field!");
+                BattleResults.Messages.Add("The " + this.Name + " fleet has entered the field!");
             }
         }
 
         public void LeaveField(IBattleField battleField)
         {
             battleField.Fleets.Remove(this);
-            BattleResults.Messages.Add("The fleet has left the field!");
+            BattleResults.Messages.Add("The " + this.Name + " has left the field!");
         }
 
         public void ReportDestruction()
         {
-            BattleResults.Messages.Add("A fleet was destroyed!");
+            BattleResults.Messages.Add("The " + this.Name + " fleet was destroyed!");
         }
     }
 }

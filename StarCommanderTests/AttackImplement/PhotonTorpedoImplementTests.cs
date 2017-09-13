@@ -11,7 +11,7 @@ namespace StarCommander.AttackImplement.Tests
         public void PhotonTorpedoPowerBaseValueTest()
         {
             IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.PhotonTorpedo);
-            Assert.Equal(8, attackImplement.Power);
+            Assert.Equal(2, attackImplement.Power);
         }
 
         [Fact()]
