@@ -1,0 +1,310 @@
+﻿@model StarCommanderMvc.Models.Battle
+@{
+    ViewBag.Title = "Battle";
+}
+
+<script src="../../Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('.jqhide').hide();
+
+            $('input#showHideShipsTrigger').click(function () {
+                $(this).closest('td').children('.jqhide').first().toggle(400);
+                if ($(this).prop('value') === '+') {
+                    $(this).prop('value', '-');
+                }
+                else {
+                    $(this).prop('value', '+');
+                }
+            });
+
+            $('input#showHideShipLossTrigger').click(function () {
+                $(this).closest('div').children('.jqhide').first().toggle(400);
+                if ($(this).prop('value') === '+') {
+                    $(this).prop('value', '-');
+                }
+                else {
+                    $(this).prop('value', '+');
+                }
+            });
+        });
+</script>
+
+@using (Html.BeginForm())
+{
+    if (Session["BattleField"] != null)
+    {
+        StarCommander.BattleFields.IBattleField myBattleField = (StarCommander.BattleFields.IBattleField)Session["BattleField"];
+        if (myBattleField != null)
+        {
+            Model.myBattleField = myBattleField;
+        }
+    }
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+    <h2>Battle Field Manager</h2>
+    <div class="row">
+    <div class="col col-lg-4">
+        <h3>Battle Configuration</h3>
+        @if (Model.myBattleField == null)
+        {
+            @Html.ActionLink("Add Field", "Index", "BattleSettings")
+        }
+
+        @if (Model.myBattleField != null)
+        {
+            <table class="table table-striped">
+                <tr>
+                    <td>
+                        <p>
+                            You have created a
+                            @Html.Label(Model.myBattleField.myBattleFieldType.ToString())
+                            battle field. You now have
+                            @Html.Label(Model.myBattleField.NumberOfFleetSlotsAvailable.ToString())
+                            slots available for your fleets. Your battle field starts with a max of
+                            @Html.Label(Model.myBattleField.NumberOfFleetSlots.ToString())
+                            slots. Remember diffrent fleet configurations use diffrent amounts of space.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            if (Model.myBattleField.Fleets.Count() > 0)
+            {
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Field Messages
+                        </th>
+                    </tr>
+                </thead>
+                @foreach (var item in StarCommander.BattleResult.BattleResults.Messages.Where(x => x.Contains("field")))
+                {
+                    <tr>
+                        <td>
+                            @item
+                        </td>
+                    </tr>
+                }
+            </table>
+            }
+        }
+    </div>
+
+    <div class="col col-lg-8">
+        @if (Model.myBattleField != null)
+        {
+            <h3>Fleet Settings</h3>
+
+            @Html.ActionLink("Add Fleet", "Index", "FleetSettings")
+            if (Model.myBattleField.Fleets.Count() > 0)
+            {
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Fleet Name
+                                    </th>
+                                    <th>
+                                        Configuration Type
+                                    </th>
+                                    <th>
+                                        Stratagy Type
+                                    </th>
+                                </tr>
+                            </thead>
+                            @foreach (var fleet in Model.myBattleField.Fleets)
+                            {
+                            <tr>
+                                <td>
+                                    @fleet.Name
+                                </td>
+                                <td>
+                                    @fleet.myFleetConfigerationType
+                                </td>
+                                <td>
+                                    @fleet.myBattleStratagyType
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <h5><input type="button" id="showHideShipsTrigger" value="+" class="btn btn-xs" title="Click to expand/colapse ship view" /> My Ships</h5>
+                                    <div id="showHideShips" class="jqhide">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Name
+                                                    </th>
+                                                    <th>
+                                                        Type
+                                                    </th>
+                                                    <th>
+                                                        Power
+                                                    </th>
+                                                    <th>
+                                                        Health
+                                                    </th>
+                                                    <th>
+                                                        Armor
+                                                    </th>
+                                                    <th>
+                                                        Speed
+                                                    </th>
+                                                    <th>
+                                                        Wepons
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            @foreach (var ship in fleet.WorkingStarShips)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @ship.Name
+                                                    </td>
+                                                    <td>
+                                                        @ship.myShipType
+                                                    </td>
+                                                    <td>
+                                                        @ship.Power
+                                                    </td>
+                                                    <td>
+                                                        @ship.Health
+                                                    </td>
+                                                    <td>
+                                                        @ship.Armor
+                                                    </td>
+                                                    <td>
+                                                        @ship.Speed
+                                                    </td>
+                                                    <td>
+                                                        @ship.AttackImplements.Count()
+                                                    </td>
+                                                </tr>
+                                             }
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    </div>
+    <div class="row">
+        @if (Model.myBattleField != null)
+        {
+            <div class="col-lg-6">
+            
+                    <h3>Battle Results</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Battle Messages
+                                </th>
+                            </tr>
+                        </thead>
+                        @foreach (var item in StarCommander.BattleResult.BattleResults.Messages.Where(x => !x.Contains("Fighter") && !x.Contains("Friget") && !x.Contains("Destroyer") && !x.Contains("field")))
+                        {
+                            <tr>
+                                <td>
+                                    @item
+                                </td>
+                            </tr>
+                        }
+                    </table>
+
+                    @if (Model.myBattleField.Fleets.Count() > 1)
+                    {
+                        @Html.ActionLink("Start Battle", "Create", "Battle") <a class="disabled">||</a>
+                    }
+                    @Html.ActionLink("Clear Battle", "Delete", "Battle")
+            
+            </div>
+            if (StarCommander.BattleResult.BattleResults.Messages.Where(x => x.Contains("destroyed")).Count() > 0)
+            {
+            <div class="col-lg-6">
+                <div style="min-height: 70px;">
+                </div>
+                <div>
+                    <h3><input type="button" id="showHideShipLossTrigger" value="+" class="btn btn-xs" title="Click to expand/colapse ship view" />Fighter Loss Details</h3>
+                    <div id="showHideShips" class="jqhide">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Battle Losses
+                                    </th>
+                                </tr>
+                            </thead>
+                            @foreach (var item in StarCommander.BattleResult.BattleResults.Messages.Where(x => x.Contains("Fighter")))
+                            {
+                                <tr>
+                                    <td>
+                                        @item
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    <h3><input type="button" id="showHideShipLossTrigger" value="+" class="btn btn-xs" title="Click to expand/colapse ship view" />Friget Loss Details</h3>
+                    <div id="showHideShips" class="jqhide">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Battle Losses
+                                    </th>
+                                </tr>
+                            </thead>
+                            @foreach (var item in StarCommander.BattleResult.BattleResults.Messages.Where(x => x.Contains("Friget")))
+                            {
+                                <tr>
+                                    <td>
+                                        @item
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    <h3><input type="button" id="showHideShipLossTrigger" value="+" class="btn btn-xs" title="Click to expand/colapse ship view" />Destroyer Loss Details</h3>
+                    <div id="showHideShips" class="jqhide">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Battle Losses
+                                    </th>
+                                </tr>
+                            </thead>
+                            @foreach (var item in StarCommander.BattleResult.BattleResults.Messages.Where(x => x.Contains("Destroyer")))
+                            {
+                                <tr>
+                                    <td>
+                                        @item
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+            }
+        }
+    </div>
+    <br />
+}
+

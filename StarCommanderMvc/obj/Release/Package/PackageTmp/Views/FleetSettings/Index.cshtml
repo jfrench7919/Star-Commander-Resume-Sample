@@ -1,0 +1,57 @@
+﻿@model StarCommanderMvc.Models.Battle
+
+@{
+    ViewBag.Title = "FleetSettings";
+}
+
+@using (Html.BeginForm())
+{
+    if (Session["BattleField"] != null)
+    {
+        StarCommander.BattleFields.IBattleField myBattleField = (StarCommander.BattleFields.IBattleField)Session["BattleField"];
+        if (myBattleField != null)
+        {
+            Model.myBattleField = myBattleField;
+        }
+    }
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        <h2>Fleet Settings</h2>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fleetConfigerationType, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.DropDownListFor(model => model.fleetConfigerationType, Model.fleetConfigerationTypes, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.battleStratagyType, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.DropDownListFor(model => model.battleStratagyType, Model.battleStratagyTypes, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" value="Add Fleet" class="btn btn-default" />
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.ReadyToDeploy, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.ReadyToDeploy, new { @class = "form-control" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+}
+
