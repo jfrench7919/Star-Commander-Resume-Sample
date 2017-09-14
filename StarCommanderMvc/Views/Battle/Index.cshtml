@@ -46,7 +46,7 @@
     
     <h2>Battle Field Manager</h2>
     <div class="row">
-    <div class="col col-lg-4">
+    <div class="col col-lg-5">
         <h3>Battle Configuration</h3>
         @if (Model.myBattleField == null)
         {
@@ -94,7 +94,7 @@
         }
     </div>
 
-    <div class="col col-lg-8">
+    <div class="col col-lg-7">
         @if (Model.myBattleField != null)
         {
             <h3>Fleet Settings</h3>
@@ -202,7 +202,7 @@
     <div class="row">
         @if (Model.myBattleField != null)
         {
-            <div class="col-lg-6">
+            <div class="col-lg-7">
             
                     <h3>Battle Results</h3>
                     <table class="table table-striped">
@@ -232,7 +232,7 @@
             </div>
             if (StarCommander.BattleResult.BattleResults.Messages.Where(x => x.Contains("destroyed")).Count() > 0)
             {
-            <div class="col-lg-6">
+            <div class="col-lg-5">
                 <div style="min-height: 80px;">
                 </div>
                 <div>
