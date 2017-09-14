@@ -114,7 +114,7 @@
                                         Configuration Type
                                     </th>
                                     <th>
-                                        Stratagy Type
+                                        Stratagey Type
                                     </th>
                                 </tr>
                             </thead>
@@ -125,10 +125,10 @@
                                     @fleet.Name
                                 </td>
                                 <td>
-                                    @fleet.myFleetConfigerationType
+                                    @fleet.myFleetConfigurationType
                                 </td>
                                 <td>
-                                    @fleet.myBattleStratagyType
+                                    @fleet.myBattleStratageyType
                                 </td>
                             </tr>
                             <tr>
@@ -233,10 +233,10 @@
             if (StarCommander.BattleResult.BattleResults.Messages.Where(x => x.Contains("destroyed")).Count() > 0)
             {
             <div class="col-lg-6">
-                <div style="min-height: 70px;">
+                <div style="min-height: 80px;">
                 </div>
                 <div>
-                    <h3><input type="button" id="showHideShipLossTrigger" value="+" class="btn btn-xs" title="Click to expand/colapse ship view" />Fighter Loss Details</h3>
+                    <h4><input type="button" id="showHideShipLossTrigger" value="+" class="btn btn-xs" title="Click to expand/colapse ship view" /> Fighter Loss Details</h4>
                     <div id="showHideShips" class="jqhide">
                         <table class="table table-striped">
                             <thead>
@@ -258,7 +258,7 @@
                     </div>
                 </div>
                 <div>
-                    <h3><input type="button" id="showHideShipLossTrigger" value="+" class="btn btn-xs" title="Click to expand/colapse ship view" />Friget Loss Details</h3>
+                    <h4><input type="button" id="showHideShipLossTrigger" value="+" class="btn btn-xs" title="Click to expand/colapse ship view" /> Friget Loss Details</h4>
                     <div id="showHideShips" class="jqhide">
                         <table class="table table-striped">
                             <thead>
@@ -280,7 +280,7 @@
                     </div>
                 </div>
                 <div>
-                    <h3><input type="button" id="showHideShipLossTrigger" value="+" class="btn btn-xs" title="Click to expand/colapse ship view" />Destroyer Loss Details</h3>
+                    <h4><input type="button" id="showHideShipLossTrigger" value="+" class="btn btn-xs" title="Click to expand/colapse ship view" /> Destroyer Loss Details</h4>
                     <div id="showHideShips" class="jqhide">
                         <table class="table table-striped">
                             <thead>
