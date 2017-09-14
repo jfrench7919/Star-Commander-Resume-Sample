@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using StarCommander.Ships;
 
-namespace StarCommander.Configeration
+namespace StarCommander.Configuration
 {
-    public class FleetConfigeration : IFleetConfigeration
+    public class FleetConfiguration : IFleetConfiguration
     {
-        public FleetConfigeration()
+        public FleetConfiguration()
         {
             Fighters = new List<IStarShip>();
             Frigets = new List<IStarShip>();

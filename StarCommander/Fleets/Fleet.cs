@@ -19,8 +19,8 @@ namespace StarCommander.Fleets
             NumberOfShipSlots = 12000;
         }
 
-        public BattleStratagyType myBattleStratagyType { get; set; }
-        public FleetConfigerationType myFleetConfigerationType { get; set; }
+        public BattleStratageyType myBattleStratageyType { get; set; }
+        public FleetConfigurationType myFleetConfigurationType { get; set; }
         public int NumberOfShipSlots { get; set; }
         public int NumberOfRoundsCompleted { get; set; }
         public List<IStarShip> StarShips { get; set; }
@@ -57,7 +57,7 @@ namespace StarCommander.Fleets
         {
             foreach (IStarShip ship in WorkingStarShips.Where(x => !x.HasFiredThisLoop).Take(10))
             {
-                ship.Attack(enemyFleet, myBattleStratagyType);
+                ship.Attack(enemyFleet, myBattleStratageyType);
                 ship.HasFiredThisLoop = true;
             }
         }

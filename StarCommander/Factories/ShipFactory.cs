@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StarCommander.Ships;
 using StarCommander.Types;
-using StarCommander.Configeration;
+using StarCommander.Configuration;
 using StarCommander.ShipDecorator;
 
 namespace StarCommander.Factories
@@ -43,7 +43,7 @@ namespace StarCommander.Factories
         {
             if (shipType != null && configurationType != null)
             {
-                IShipConfigeration conCollection = ShipConfigerationFactory.CreateShipConfiguration(shipType, configurationType);
+                IShipConfiguration conCollection = ShipConfigurationFactory.CreateShipConfiguration(shipType, configurationType);
 
                 foreach (var i in conCollection.upgradeImplements)
                 {

@@ -48,10 +48,10 @@ namespace StarCommander.AttackImplement.Tests
         public void LaserAmmoNeverUnAvailableTest()
         {
             IAttackImplement ai = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Laser);
-            IFleet fleet = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.WeekShipsFirst);
+            IFleet fleet = FleetFactory.CreateFleet(FleetConfigurationType.BalancedShips, BattleStratageyType.WeekShipsFirst);
             for (int i = 0; i < 600; i++)
             {
-                ai.Fire(fleet, BattleStratagyType.StrongShipsFirst);
+                ai.Fire(fleet, BattleStratageyType.StrongShipsFirst);
             }
             Assert.True(ai.AmmoAvailable);
             Assert.False(ai.Ammo.HasValue);

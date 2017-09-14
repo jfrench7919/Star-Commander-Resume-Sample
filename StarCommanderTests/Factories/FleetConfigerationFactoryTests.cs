@@ -6,40 +6,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using StarCommander.Types;
-using StarCommander.Configeration;
+using StarCommander.Configuration;
 
 namespace StarCommander.Factories.Tests
 {
-    public class FleetConfigerationFactoryTests
+    public class FleetConfigurationFactoryTests
     {
         [Fact()]
         public void CreateBalancedShipsFleetConfigurationTest()
         {
-            IFleetConfigeration fleetConfigeration = FleetConfigerationFactory.CreateFleetConfiguration(FleetConfigerationType.BalancedShips);
-            Assert.IsType<FleetConfigeration>(fleetConfigeration);
+            IFleetConfiguration fleetConfiguration = FleetConfigurationFactory.CreateFleetConfiguration(FleetConfigurationType.BalancedShips);
+            Assert.IsType<FleetConfiguration>(fleetConfiguration);
         }
 
         [Fact()]
         public void CreateHeavyShipsFleetConfigurationTest()
         {
-            IFleetConfigeration fleetConfigeration = FleetConfigerationFactory.CreateFleetConfiguration(FleetConfigerationType.HeavyShips);
-            Assert.IsType<FleetConfigeration>(fleetConfigeration);
+            IFleetConfiguration fleetConfiguration = FleetConfigurationFactory.CreateFleetConfiguration(FleetConfigurationType.HeavyShips);
+            Assert.IsType<FleetConfiguration>(fleetConfiguration);
         }
 
         [Fact()]
         public void CreateSmallShipsFleetConfigurationTest()
         {
-            IFleetConfigeration fleetConfigeration = FleetConfigerationFactory.CreateFleetConfiguration(FleetConfigerationType.SmallShips);
-            Assert.IsType<FleetConfigeration>(fleetConfigeration);
+            IFleetConfiguration fleetConfiguration = FleetConfigurationFactory.CreateFleetConfiguration(FleetConfigurationType.SmallShips);
+            Assert.IsType<FleetConfiguration>(fleetConfiguration);
         }
 
         [Fact()]
         public void CreateSmallShipsFleetConfigurationSizeTest()
         {
-            IFleetConfigeration fleetConfigeration = FleetConfigerationFactory.CreateFleetConfiguration(FleetConfigerationType.SmallShips);
-            var destroyers = fleetConfigeration.Destroyers.Sum(x => x.Size);
-            var frigets = fleetConfigeration.Frigets.Sum(x => x.Size);
-            var fighters = fleetConfigeration.Fighters.Sum(x => x.Size);
+            IFleetConfiguration fleetConfiguration = FleetConfigurationFactory.CreateFleetConfiguration(FleetConfigurationType.SmallShips);
+            var destroyers = fleetConfiguration.Destroyers.Sum(x => x.Size);
+            var frigets = fleetConfiguration.Frigets.Sum(x => x.Size);
+            var fighters = fleetConfiguration.Fighters.Sum(x => x.Size);
             var size = destroyers + frigets + fighters;
             Assert.True(size < 12000);
         }
@@ -47,10 +47,10 @@ namespace StarCommander.Factories.Tests
         [Fact()]
         public void CreateHeavyShipsFleetConfigurationSizeTest()
         {
-            IFleetConfigeration fleetConfigeration = FleetConfigerationFactory.CreateFleetConfiguration(FleetConfigerationType.HeavyShips);
-            var destroyers = fleetConfigeration.Destroyers.Sum(x => x.Size);
-            var frigets = fleetConfigeration.Frigets.Sum(x => x.Size);
-            var fighters = fleetConfigeration.Fighters.Sum(x => x.Size);
+            IFleetConfiguration fleetConfiguration = FleetConfigurationFactory.CreateFleetConfiguration(FleetConfigurationType.HeavyShips);
+            var destroyers = fleetConfiguration.Destroyers.Sum(x => x.Size);
+            var frigets = fleetConfiguration.Frigets.Sum(x => x.Size);
+            var fighters = fleetConfiguration.Fighters.Sum(x => x.Size);
             var size = destroyers + frigets + fighters;
             Assert.True(size < 12000);
         }
@@ -58,10 +58,10 @@ namespace StarCommander.Factories.Tests
         [Fact()]
         public void CreateBalancedShipsFleetConfigurationSizeTest()
         {
-            IFleetConfigeration fleetConfigeration = FleetConfigerationFactory.CreateFleetConfiguration(FleetConfigerationType.BalancedShips);
-            var destroyers = fleetConfigeration.Destroyers.Sum(x => x.Size);
-            var frigets = fleetConfigeration.Frigets.Sum(x => x.Size);
-            var fighters = fleetConfigeration.Fighters.Sum(x => x.Size);
+            IFleetConfiguration fleetConfiguration = FleetConfigurationFactory.CreateFleetConfiguration(FleetConfigurationType.BalancedShips);
+            var destroyers = fleetConfiguration.Destroyers.Sum(x => x.Size);
+            var frigets = fleetConfiguration.Frigets.Sum(x => x.Size);
+            var fighters = fleetConfiguration.Fighters.Sum(x => x.Size);
             var size = destroyers + frigets + fighters;
             Assert.True(size < 12000);
         }

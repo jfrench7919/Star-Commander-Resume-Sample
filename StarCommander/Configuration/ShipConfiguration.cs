@@ -7,11 +7,11 @@ using StarCommander.AttackImplement;
 using StarCommander.DefendImplement;
 using StarCommander.UpgradeImplement;
 
-namespace StarCommander.Configeration
+namespace StarCommander.Configuration
 {
-    public class ShipConfigeration : IShipConfigeration
+    public class ShipConfiguration : IShipConfiguration
     {
-        public ShipConfigeration()
+        public ShipConfiguration()
         {
             attackImplements = new List<IAttackImplement>();
             defendImplements = new List<IDefendImplement>();

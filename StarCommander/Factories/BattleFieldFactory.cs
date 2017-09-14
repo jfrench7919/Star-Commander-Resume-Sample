@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StarCommander.BattleFields;
 using StarCommander.Types;
-using StarCommander.Configeration;
+using StarCommander.Configuration;
 
 namespace StarCommander.Factories
 {

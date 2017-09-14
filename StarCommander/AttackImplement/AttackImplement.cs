@@ -38,7 +38,7 @@ namespace StarCommander.AttackImplement
             }
         }
 
-        public void Fire(IFleet enemyFleet, BattleStratagyType battleStratagyType)
+        public void Fire(IFleet enemyFleet, BattleStratageyType battleStratageyType)
         {
             if (AmmoAvailable)
             {
@@ -47,7 +47,7 @@ namespace StarCommander.AttackImplement
                     Ammo = Ammo - 1;
                 }
                 
-                IStarShip ship = GetTargetShip(battleStratagyType, enemyFleet);
+                IStarShip ship = GetTargetShip(battleStratageyType, enemyFleet);
                 if (ship != null)
                 {
                     AttackResult result = new AttackResult { Damage = CalculateDamage() };
@@ -59,17 +59,17 @@ namespace StarCommander.AttackImplement
             }
         }
 
-        public IStarShip GetTargetShip(BattleStratagyType? battleStratagyType, IFleet enemyFleet)
+        public IStarShip GetTargetShip(BattleStratageyType? battleStratageyType, IFleet enemyFleet)
         {
-            switch (battleStratagyType)
+            switch (battleStratageyType)
             {
-                case BattleStratagyType.WeekShipsFirst:
+                case BattleStratageyType.WeekShipsFirst:
                     var first25Week = enemyFleet.WorkingStarShips.OrderBy(x => x.Power).OrderBy(x => x.Health).OrderBy(x => x.Armor).Take(25).ToList();
                     return FindShip(first25Week);
-                case BattleStratagyType.StrongShipsFirst:
+                case BattleStratageyType.StrongShipsFirst:
                     var first25Strong = enemyFleet.WorkingStarShips.OrderByDescending(x => x.Power).OrderByDescending(x => x.Health).OrderByDescending(x => x.Armor).Take(25).ToList();
                     return FindShip(first25Strong);
-                case BattleStratagyType.NoPriority:
+                case BattleStratageyType.NoPriority:
                     var first25Health = enemyFleet.WorkingStarShips.OrderByDescending(x => x.Health).Take(25).ToList();
                     return FindShip(first25Health);
                 default:

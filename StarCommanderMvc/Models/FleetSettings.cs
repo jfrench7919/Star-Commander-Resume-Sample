@@ -11,10 +11,10 @@ namespace StarCommanderMvc.Models
     public class FleetSettings
     {
         [Required()]
-        [Display(Name = "Configeration")]
-        public FleetConfigerationType fleetConfigerationType { get; set; } = FleetConfigerationType.Select;
+        [Display(Name = "Configuration")]
+        public FleetConfigurationType fleetConfigurationType { get; set; } = FleetConfigurationType.Select;
         [Required()]
-        [Display(Name = "Stratagy")]
-        public BattleStratagyType battleStratagyType { get; set; } = BattleStratagyType.Select;
+        [Display(Name = "Stratagey")]
+        public BattleStratageyType battleStratageyType { get; set; } = BattleStratageyType.Select;
     }
 }

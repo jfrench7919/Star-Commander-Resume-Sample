@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StarCommander.Configeration;
+using StarCommander.Configuration;
 using StarCommander.Types;
 
 namespace StarCommander.Factories
 {
-    public class FleetConfigerationFactory
+    public class FleetConfigurationFactory
     {
-        public static IFleetConfigeration CreateFleetConfiguration(Nullable<FleetConfigerationType> fleetConfigerationType)
+        public static IFleetConfiguration CreateFleetConfiguration(Nullable<FleetConfigurationType> fleetConfigurationType)
         {
 
-            switch (fleetConfigerationType)
+            switch (fleetConfigurationType)
             {
-                case FleetConfigerationType.SmallShips:
-                    IFleetConfigeration smallShips = new FleetConfigeration();
+                case FleetConfigurationType.SmallShips:
+                    IFleetConfiguration smallShips = new FleetConfiguration();
                     CreateSmallShipDefaultCollection(smallShips);
                     return smallShips;
-                case FleetConfigerationType.BalancedShips:
-                    IFleetConfigeration balancedShips = new FleetConfigeration();
+                case FleetConfigurationType.BalancedShips:
+                    IFleetConfiguration balancedShips = new FleetConfiguration();
                     CreateBalancedShipDefaultCollection(balancedShips);
                     return balancedShips;
-                case FleetConfigerationType.HeavyShips:
-                    IFleetConfigeration heavyShips = new FleetConfigeration();
+                case FleetConfigurationType.HeavyShips:
+                    IFleetConfiguration heavyShips = new FleetConfiguration();
                     CreateHeavyShipDefaultCollection(heavyShips);
                     return heavyShips;
                 default:
@@ -32,7 +32,7 @@ namespace StarCommander.Factories
             }
         }
 
-        private static void CreateHeavyShipDefaultCollection(IFleetConfigeration heavyShips)
+        private static void CreateHeavyShipDefaultCollection(IFleetConfiguration heavyShips)
         {
             //Add Destroyers
             for (int i = 0; i < 2; i++)
@@ -57,7 +57,7 @@ namespace StarCommander.Factories
             }
         }
 
-        private static void CreateBalancedShipDefaultCollection(IFleetConfigeration balancedShips)
+        private static void CreateBalancedShipDefaultCollection(IFleetConfiguration balancedShips)
         {
             //Add Destroyers
             balancedShips.Destroyers.Add(ShipFactory.CreateShip(ShipType.Destroyer, ShipConfigurationType.Balanced));
@@ -79,7 +79,7 @@ namespace StarCommander.Factories
             }
         }
 
-        private static void CreateSmallShipDefaultCollection(IFleetConfigeration smallShips)
+        private static void CreateSmallShipDefaultCollection(IFleetConfiguration smallShips)
         {
             //Add Friget
             for (int i = 0; i < 3; i++)

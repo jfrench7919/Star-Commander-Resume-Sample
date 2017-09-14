@@ -18,7 +18,7 @@ namespace StarCommanderMvc.Controllers
         {
             battle = SessionController.GetSessionOrNewBattle(battle, Session["BattleField"]);
 
-            IFleet fleet = FleetFactory.CreateFleet(battle.fleetConfigerationType, battle.battleStratagyType);
+            IFleet fleet = FleetFactory.CreateFleet(battle.fleetConfigurationType, battle.battleStratageyType);
             if (fleet != null)
             {
                 if (battle.myBattleField != null)

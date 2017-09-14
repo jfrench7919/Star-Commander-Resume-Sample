@@ -5,32 +5,32 @@ using System.Text;
 using System.Threading.Tasks;
 using StarCommander.Fleets;
 using StarCommander.Types;
-using StarCommander.Configeration;
+using StarCommander.Configuration;
 
 namespace StarCommander.Factories
 {
     public class FleetFactory
     {
-        public static IFleet CreateFleet(Nullable<FleetConfigerationType> fleetConfigerationType, BattleStratagyType battleStratagyType)
+        public static IFleet CreateFleet(Nullable<FleetConfigurationType> fleetConfigurationType, BattleStratageyType battleStratageyType)
         {
-            switch (fleetConfigerationType)
+            switch (fleetConfigurationType)
             {
-                case FleetConfigerationType.SmallShips:
+                case FleetConfigurationType.SmallShips:
                     IFleet smallShips = new Fleet();
-                    SetSmallShipsDefaultValues(smallShips, battleStratagyType);
-                    BuildSmallShipsCollection(smallShips, fleetConfigerationType);
+                    SetSmallShipsDefaultValues(smallShips, battleStratageyType);
+                    BuildSmallShipsCollection(smallShips, fleetConfigurationType);
                     smallShips.Name = NameGenerator();
                     return smallShips;
-                case FleetConfigerationType.BalancedShips:
+                case FleetConfigurationType.BalancedShips:
                     IFleet balancedShips = new Fleet();
-                    SetBalancedShipsDefaultValues(balancedShips, battleStratagyType);
-                    BuildBalancedShipsCollection(balancedShips, fleetConfigerationType);
+                    SetBalancedShipsDefaultValues(balancedShips, battleStratageyType);
+                    BuildBalancedShipsCollection(balancedShips, fleetConfigurationType);
                     balancedShips.Name = NameGenerator();
                     return balancedShips;
-                case FleetConfigerationType.HeavyShips:
+                case FleetConfigurationType.HeavyShips:
                     IFleet heavyShips = new Fleet();
-                    SetHeavyShipsDefaultValues(heavyShips, battleStratagyType);
-                    BuildHeavyShipsCollection(heavyShips, fleetConfigerationType);
+                    SetHeavyShipsDefaultValues(heavyShips, battleStratageyType);
+                    BuildHeavyShipsCollection(heavyShips, fleetConfigurationType);
                     heavyShips.Name = NameGenerator();
                     return heavyShips;
                 default:
@@ -38,67 +38,59 @@ namespace StarCommander.Factories
             }
         }
 
-        private static void BuildHeavyShipsCollection(IFleet heavyShips, FleetConfigerationType? fleetConfigerationType)
+        private static void BuildHeavyShipsCollection(IFleet heavyShips, FleetConfigurationType? fleetConfigurationType)
         {
-            IFleetConfigeration fleetConfigeration = FleetConfigerationFactory.CreateFleetConfiguration(FleetConfigerationType.HeavyShips);
-            if (fleetConfigerationType.HasValue)
+            IFleetConfiguration fleetConfiguration = FleetConfigurationFactory.CreateFleetConfiguration(FleetConfigurationType.HeavyShips);
+            if (fleetConfigurationType.HasValue)
             {
-                heavyShips.myFleetConfigerationType = fleetConfigerationType.Value;
+                heavyShips.myFleetConfigurationType = fleetConfigurationType.Value;
             }
-            AddShips(heavyShips, fleetConfigeration);
+            AddShips(heavyShips, fleetConfiguration);
         }
 
-        private static void BuildBalancedShipsCollection(IFleet balancedShips, FleetConfigerationType? fleetConfigerationType)
+        private static void BuildBalancedShipsCollection(IFleet balancedShips, FleetConfigurationType? fleetConfigurationType)
         {
-            IFleetConfigeration fleetConfigeration = FleetConfigerationFactory.CreateFleetConfiguration(FleetConfigerationType.BalancedShips);
-            if (fleetConfigerationType.HasValue)
+            IFleetConfiguration fleetConfiguration = FleetConfigurationFactory.CreateFleetConfiguration(FleetConfigurationType.BalancedShips);
+            if (fleetConfigurationType.HasValue)
             {
-                balancedShips.myFleetConfigerationType = fleetConfigerationType.Value;
+                balancedShips.myFleetConfigurationType = fleetConfigurationType.Value;
             }
-            AddShips(balancedShips, fleetConfigeration);
+            AddShips(balancedShips, fleetConfiguration);
         }
 
-        private static void BuildSmallShipsCollection(IFleet smallShips, FleetConfigerationType? fleetConfigerationType)
+        private static void BuildSmallShipsCollection(IFleet smallShips, FleetConfigurationType? fleetConfigurationType)
         {
-            IFleetConfigeration fleetConfigeration = FleetConfigerationFactory.CreateFleetConfiguration(FleetConfigerationType.SmallShips);
-            if (fleetConfigerationType.HasValue)
+            IFleetConfiguration fleetConfiguration = FleetConfigurationFactory.CreateFleetConfiguration(FleetConfigurationType.SmallShips);
+            if (fleetConfigurationType.HasValue)
             {
-                smallShips.myFleetConfigerationType = fleetConfigerationType.Value;
+                smallShips.myFleetConfigurationType = fleetConfigurationType.Value;
             }
-            AddShips(smallShips, fleetConfigeration);
+            AddShips(smallShips, fleetConfiguration);
         }
 
-        private static void SetHeavyShipsDefaultValues(IFleet heavyShips, BattleStratagyType battleStratagyType)
+        private static void SetHeavyShipsDefaultValues(IFleet heavyShips, BattleStratageyType battleStratageyType)
         {
-            SetStratagyType(heavyShips, battleStratagyType);
+            SetStratageyType(heavyShips, battleStratageyType);
         }
 
-        private static void SetBalancedShipsDefaultValues(IFleet balancedShips, BattleStratagyType battleStratagyType)
+        private static void SetBalancedShipsDefaultValues(IFleet balancedShips, BattleStratageyType battleStratageyType)
         {
-            SetStratagyType(balancedShips, battleStratagyType);
+            SetStratageyType(balancedShips, battleStratageyType);
         }
 
-        private static void SetSmallShipsDefaultValues(IFleet smallShips, BattleStratagyType battleStratagyType)
+        private static void SetSmallShipsDefaultValues(IFleet smallShips, BattleStratageyType battleStratageyType)
         {
-            SetStratagyType(smallShips, battleStratagyType);
+            SetStratageyType(smallShips, battleStratageyType);
         }
 
-        private static void SetStratagyType(IFleet fleet, BattleStratagyType battleStratagyType)
+        private static void SetStratageyType(IFleet fleet, BattleStratageyType battleStratageyType)
         {
-            fleet.myBattleStratagyType = battleStratagyType;
+            fleet.myBattleStratageyType = battleStratageyType;
         }
 
-        private static void AddShips(IFleet ships, IFleetConfigeration fleetConfigeration)
+        private static void AddShips(IFleet ships, IFleetConfiguration fleetConfiguration)
         {
-            foreach (var ship in fleetConfigeration.Destroyers)
-            {
-                if (ships.NumberOfShipSlotsAvailable > ship.Size)
-                {
-                    ships.StarShips.Add(ship);
-                }
-            }
-
-            foreach (var ship in fleetConfigeration.Frigets)
+            foreach (var ship in fleetConfiguration.Destroyers)
             {
                 if (ships.NumberOfShipSlotsAvailable > ship.Size)
                 {
@@ -106,7 +98,15 @@ namespace StarCommander.Factories
                 }
             }
 
-            foreach (var ship in fleetConfigeration.Fighters)
+            foreach (var ship in fleetConfiguration.Frigets)
+            {
+                if (ships.NumberOfShipSlotsAvailable > ship.Size)
+                {
+                    ships.StarShips.Add(ship);
+                }
+            }
+
+            foreach (var ship in fleetConfiguration.Fighters)
             {
                 if (ships.NumberOfShipSlotsAvailable > ship.Size)
                 {

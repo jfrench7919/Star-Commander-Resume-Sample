@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace StarCommander.Types
 {
-    public enum BattleStratagyType
+    public enum FleetConfigurationType
     {
         Select,
-        NoPriority,
-        StrongShipsFirst,
-        WeekShipsFirst
+        BalancedShips,
+        HeavyShips,
+        SmallShips
     }
 }

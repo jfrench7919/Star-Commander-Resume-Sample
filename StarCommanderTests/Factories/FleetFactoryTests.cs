@@ -15,28 +15,28 @@ namespace StarCommander.Factories.Tests
         [Fact()]
         public void CreateBalancedShipsFleetTest()
         {
-            IFleet fleet = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.WeekShipsFirst);
+            IFleet fleet = FleetFactory.CreateFleet(FleetConfigurationType.BalancedShips, BattleStratageyType.WeekShipsFirst);
             Assert.IsType<Fleets.Fleet>(fleet);
         }
 
         [Fact()]
         public void CreateHeavyShipsFleetTest()
         {
-            IFleet fleet = FleetFactory.CreateFleet(FleetConfigerationType.HeavyShips, BattleStratagyType.WeekShipsFirst);
+            IFleet fleet = FleetFactory.CreateFleet(FleetConfigurationType.HeavyShips, BattleStratageyType.WeekShipsFirst);
             Assert.IsType<Fleets.Fleet>(fleet);
         }
 
         [Fact()]
         public void CreateSmallShipsFleetTest()
         {
-            IFleet fleet = FleetFactory.CreateFleet(FleetConfigerationType.SmallShips, BattleStratagyType.WeekShipsFirst);
+            IFleet fleet = FleetFactory.CreateFleet(FleetConfigurationType.SmallShips, BattleStratageyType.WeekShipsFirst);
             Assert.IsType<Fleets.Fleet>(fleet);
         }
 
         [Fact()]
         public void CreateFleetConfigurationOverSizedTest()
         {
-            IFleet fleet = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.WeekShipsFirst);
+            IFleet fleet = FleetFactory.CreateFleet(FleetConfigurationType.BalancedShips, BattleStratageyType.WeekShipsFirst);
             var size = fleet.StarShips.Sum(x => x.Size);
             Assert.True(size < 12000);
         }

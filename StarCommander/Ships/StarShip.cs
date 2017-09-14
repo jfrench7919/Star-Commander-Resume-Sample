@@ -87,11 +87,11 @@ namespace StarCommander.Ships
         public ShipType myShipType { get; set; }
         public bool HasFiredThisLoop { get; set; }
 
-        public void Attack(IFleet enemyFleet, BattleStratagyType battleStratagyType)
+        public void Attack(IFleet enemyFleet, BattleStratageyType battleStratageyType)
         {
             foreach (IAttackImplement i in availableAttackImplements.Take(10))
             {
-                i.Fire(enemyFleet, battleStratagyType);
+                i.Fire(enemyFleet, battleStratageyType);
             }
         }
 

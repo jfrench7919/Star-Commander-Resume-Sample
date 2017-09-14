@@ -31,14 +31,14 @@ namespace StarCommanderMvc.Models
         }
 
         [Required()]
-        [Display(Name = "Configeration Type")]
-        public FleetConfigerationType fleetConfigerationType { get; set; }
-        public IEnumerable<SelectListItem> fleetConfigerationTypes
+        [Display(Name = "Configuration Type")]
+        public FleetConfigurationType fleetConfigurationType { get; set; }
+        public IEnumerable<SelectListItem> fleetConfigurationTypes
         {
             get
             {
-                return Enum.GetValues(typeof(FleetConfigerationType))
-                                .Cast<FleetConfigerationType>()
+                return Enum.GetValues(typeof(FleetConfigurationType))
+                                .Cast<FleetConfigurationType>()
                                 .Select(p => new SelectListItem()
                                 {
                                     Text = p.ToString(),
@@ -48,15 +48,15 @@ namespace StarCommanderMvc.Models
             }
         }
         [Required()]
-        [Display(Name = "Stratagy Type")]
+        [Display(Name = "Stratagey Type")]
         [Editable(false)]
-        public BattleStratagyType battleStratagyType { get; set; }
-        public IEnumerable<SelectListItem> battleStratagyTypes
+        public BattleStratageyType battleStratageyType { get; set; }
+        public IEnumerable<SelectListItem> battleStratageyTypes
         {
             get
             {
-                return Enum.GetValues(typeof(BattleStratagyType))
-                                .Cast<BattleStratagyType>()
+                return Enum.GetValues(typeof(BattleStratageyType))
+                                .Cast<BattleStratageyType>()
                                 .Select(p => new SelectListItem()
                                 {
                                     Text = p.ToString(),

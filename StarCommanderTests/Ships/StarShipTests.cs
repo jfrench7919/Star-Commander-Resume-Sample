@@ -57,13 +57,13 @@ namespace StarCommander.Ships.Tests
         public void AttackEnemyShipsTest()
         {
             IStarShip myship = ShipFactory.CreateShip(ShipType.Fighter, ShipConfigurationType.Light);
-            IFleet enemyfleet = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.WeekShipsFirst);
+            IFleet enemyfleet = FleetFactory.CreateFleet(FleetConfigurationType.BalancedShips, BattleStratageyType.WeekShipsFirst);
             var oTotalHealthAndArmor = enemyfleet.StarShips.Sum(x => x.Health) + enemyfleet.StarShips.Sum(x => x.Armor);
 
             //has random miss rate
             for (int i = 0; i < 100; i++)
             {
-                myship.Attack(enemyfleet, BattleStratagyType.WeekShipsFirst);
+                myship.Attack(enemyfleet, BattleStratageyType.WeekShipsFirst);
             }
 
             var newTotalHealthAndArmor = enemyfleet.StarShips.Sum(x => x.Health) + enemyfleet.StarShips.Sum(x => x.Armor);

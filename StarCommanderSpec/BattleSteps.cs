@@ -19,7 +19,7 @@ namespace StarCommanderSpec
         {
             for (int i = 0; i < numberOfFleets; i++)
             {
-                battleField.Fleets.Add(FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.WeekShipsFirst));
+                battleField.Fleets.Add(FleetFactory.CreateFleet(FleetConfigurationType.BalancedShips, BattleStratageyType.WeekShipsFirst));
             }
         }
 

@@ -24,8 +24,8 @@ namespace StarCommander.Fleet.Tests
         [Fact()]
         public void AttackEnemyShipsTest()
         {
-            IFleet myfleet = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.WeekShipsFirst);
-            IFleet enemyfleet = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.WeekShipsFirst);
+            IFleet myfleet = FleetFactory.CreateFleet(FleetConfigurationType.BalancedShips, BattleStratageyType.WeekShipsFirst);
+            IFleet enemyfleet = FleetFactory.CreateFleet(FleetConfigurationType.BalancedShips, BattleStratageyType.WeekShipsFirst);
             var oTotalHealthAndArmor = enemyfleet.StarShips.Sum(x => x.Health) + enemyfleet.StarShips.Sum(x => x.Armor);
             myfleet.AttacKEnemyShips(enemyfleet);
             var newTotalHealthAndArmor = enemyfleet.StarShips.Sum(x => x.Health) + enemyfleet.StarShips.Sum(x => x.Armor);
@@ -37,7 +37,7 @@ namespace StarCommander.Fleet.Tests
         public void EnterFieldTest()
         {
             IBattleField battleField = BattleFieldFactory.CreateBattleField(BattleFieldType.Small);
-            IFleet myfleet = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.WeekShipsFirst);
+            IFleet myfleet = FleetFactory.CreateFleet(FleetConfigurationType.BalancedShips, BattleStratageyType.WeekShipsFirst);
             myfleet.EnterField(battleField);
             Assert.True(battleField.Fleets.Count() > 0);
         }
@@ -46,7 +46,7 @@ namespace StarCommander.Fleet.Tests
         public void LeaveFieldTest()
         {
             IBattleField battleField = BattleFieldFactory.CreateBattleField(BattleFieldType.Small);
-            IFleet myfleet = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.WeekShipsFirst);
+            IFleet myfleet = FleetFactory.CreateFleet(FleetConfigurationType.BalancedShips, BattleStratageyType.WeekShipsFirst);
             myfleet.EnterField(battleField);
             myfleet.LeaveField(battleField);
             Assert.True(battleField.Fleets.Count() == 0);

@@ -8,9 +8,9 @@ using StarCommander.DefendImplement;
 using StarCommander.UpgradeImplement;
 
 
-namespace StarCommander.Configeration
+namespace StarCommander.Configuration
 {
-    public interface IShipConfigeration
+    public interface IShipConfiguration
     {
         List<IAttackImplement> attackImplements { get; set; }
         List<IDefendImplement> defendImplements { get; set; }

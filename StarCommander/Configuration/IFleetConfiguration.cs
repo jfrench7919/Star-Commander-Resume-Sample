@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using StarCommander.Ships;
 
-namespace StarCommander.Configeration
+namespace StarCommander.Configuration
 {
-    public interface IFleetConfigeration
+    public interface IFleetConfiguration
     {
         List<IStarShip> Fighters { get; set; }
         List<IStarShip> Frigets { get; set; }

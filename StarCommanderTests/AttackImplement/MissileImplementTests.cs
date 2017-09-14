@@ -53,11 +53,11 @@ namespace StarCommander.AttackImplement.Tests
         public void MissileAmmoUnAvailableTest()
         {
             IAttackImplement ai = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Missile);
-            IFleet fleet = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.WeekShipsFirst);
+            IFleet fleet = FleetFactory.CreateFleet(FleetConfigurationType.BalancedShips, BattleStratageyType.WeekShipsFirst);
             var shots = ai.Ammo;
             for (int i = 0; i < shots; i++)
             {
-                ai.Fire(fleet, BattleStratagyType.StrongShipsFirst);
+                ai.Fire(fleet, BattleStratageyType.StrongShipsFirst);
             }
             Assert.False(ai.AmmoAvailable);
         }

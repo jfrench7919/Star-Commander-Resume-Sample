@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StarCommander.Configeration
+namespace StarCommander.Configuration
 {
-    public interface IBattleFieldConfigeration
+    public class BattleFieldConfiguration : IBattleFieldConfiguration
     {
     }
 }

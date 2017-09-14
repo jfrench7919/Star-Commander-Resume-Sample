@@ -45,12 +45,12 @@ namespace StarCommander.BattleResult.Tests
         private static IBattleField SetUpBattleField()
         {
             IBattleField battleField = BattleFieldFactory.CreateBattleField(BattleFieldType.Large);
-            IFleet fleet1 = FleetFactory.CreateFleet(FleetConfigerationType.SmallShips, BattleStratagyType.WeekShipsFirst);
-            IFleet fleet2 = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.StrongShipsFirst);
-            IFleet fleet3 = FleetFactory.CreateFleet(FleetConfigerationType.HeavyShips, BattleStratagyType.NoPriority);
-            IFleet fleet4 = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.WeekShipsFirst);
-            IFleet fleet5 = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.NoPriority);
-            IFleet fleet6 = FleetFactory.CreateFleet(FleetConfigerationType.BalancedShips, BattleStratagyType.NoPriority);
+            IFleet fleet1 = FleetFactory.CreateFleet(FleetConfigurationType.SmallShips, BattleStratageyType.WeekShipsFirst);
+            IFleet fleet2 = FleetFactory.CreateFleet(FleetConfigurationType.BalancedShips, BattleStratageyType.StrongShipsFirst);
+            IFleet fleet3 = FleetFactory.CreateFleet(FleetConfigurationType.HeavyShips, BattleStratageyType.NoPriority);
+            IFleet fleet4 = FleetFactory.CreateFleet(FleetConfigurationType.BalancedShips, BattleStratageyType.WeekShipsFirst);
+            IFleet fleet5 = FleetFactory.CreateFleet(FleetConfigurationType.BalancedShips, BattleStratageyType.NoPriority);
+            IFleet fleet6 = FleetFactory.CreateFleet(FleetConfigurationType.BalancedShips, BattleStratageyType.NoPriority);
             fleet1.EnterField(battleField);
             fleet2.EnterField(battleField);
             fleet3.EnterField(battleField);

@@ -16,8 +16,8 @@ namespace StarCommander.AttackImplement
         Nullable<int> Ammo { get; set; }
         bool AmmoAvailable { get; }
 
-        void Fire(IFleet enemyFleet, BattleStratagyType battleStratagyType);
-        IStarShip GetTargetShip(BattleStratagyType? battleStratagyType, IFleet enemyFleet);
+        void Fire(IFleet enemyFleet, BattleStratageyType battleStratageyType);
+        IStarShip GetTargetShip(BattleStratageyType? battleStratageyType, IFleet enemyFleet);
         int CalculateDamage();
     }
 }

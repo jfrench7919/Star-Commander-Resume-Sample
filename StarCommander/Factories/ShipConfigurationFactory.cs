@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StarCommander.Configeration;
+using StarCommander.Configuration;
 using StarCommander.Types;
 
 namespace StarCommander.Factories
 {
-    public class ShipConfigerationFactory
+    public class ShipConfigurationFactory
     {
-        public static IShipConfigeration CreateShipConfiguration(Nullable<ShipType> shipType, Nullable<ShipConfigurationType> shipConfigurationType)
+        public static IShipConfiguration CreateShipConfiguration(Nullable<ShipType> shipType, Nullable<ShipConfigurationType> shipConfigurationType)
         {
 
             switch (shipConfigurationType)
             {
                 case ShipConfigurationType.Heavy:
-                    IShipConfigeration heavy = new ShipConfigeration();
+                    IShipConfiguration heavy = new ShipConfiguration();
                     CreateHeavyDefaultCollection(heavy, shipType);
                     return heavy;
                 case ShipConfigurationType.Light:
-                    IShipConfigeration light = new ShipConfigeration();
+                    IShipConfiguration light = new ShipConfiguration();
                     CreateLightDefaultCollection(light, shipType);
                     return light;
                 case ShipConfigurationType.Balanced:
-                    IShipConfigeration balanced = new ShipConfigeration();
+                    IShipConfiguration balanced = new ShipConfiguration();
                     CreateBalancedDefaultCollection(balanced, shipType);
                     return balanced;
                 default:
@@ -32,7 +32,7 @@ namespace StarCommander.Factories
             }
         }
 
-        private static void CreateBalancedDefaultCollection(IShipConfigeration balanced, ShipType? shipType)
+        private static void CreateBalancedDefaultCollection(IShipConfiguration balanced, ShipType? shipType)
         {
             switch (shipType)
             {
@@ -50,7 +50,7 @@ namespace StarCommander.Factories
             }
         }
 
-        private static void CreateDestoyerBalancedDefaultCollection(IShipConfigeration balanced)
+        private static void CreateDestoyerBalancedDefaultCollection(IShipConfiguration balanced)
         {
             //Add multiple lasers
             for (int i = 0; i < 46; i++)
@@ -93,7 +93,7 @@ namespace StarCommander.Factories
             
         }
 
-        private static void CreateFrigetBalancedDefaultCollection(IShipConfigeration balanced)
+        private static void CreateFrigetBalancedDefaultCollection(IShipConfiguration balanced)
         {
             //Add multiple lasers
             for (int i = 0; i < 12; i++)
@@ -124,7 +124,7 @@ namespace StarCommander.Factories
             balanced.upgradeImplements.Add(UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.MetalicMicrobes));
         }
 
-        private static void CreateFighterBalancedDefaultCollection(IShipConfigeration balanced)
+        private static void CreateFighterBalancedDefaultCollection(IShipConfiguration balanced)
         {
             //Add multiple lasers
             for (int i = 0; i < 6; i++)
@@ -144,7 +144,7 @@ namespace StarCommander.Factories
             balanced.upgradeImplements.Add(UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.WarpDrive));
         }
 
-        private static void CreateLightDefaultCollection(IShipConfigeration light, ShipType? shipType)
+        private static void CreateLightDefaultCollection(IShipConfiguration light, ShipType? shipType)
         {
             switch (shipType)
             {
@@ -162,7 +162,7 @@ namespace StarCommander.Factories
             }
         }
 
-        private static void CreateDestoyerLightDefaultCollection(IShipConfigeration light)
+        private static void CreateDestoyerLightDefaultCollection(IShipConfiguration light)
         {
             //Add multiple lasers
             for (int i = 0; i < 78; i++)
@@ -206,7 +206,7 @@ namespace StarCommander.Factories
             }
         }
 
-        private static void CreateFrigetLightDefaultCollection(IShipConfigeration light)
+        private static void CreateFrigetLightDefaultCollection(IShipConfiguration light)
         {
             //Add multiple lasers
             for (int i = 0; i < 20; i++)
@@ -239,7 +239,7 @@ namespace StarCommander.Factories
             }
         }
 
-        private static void CreateFighterLightDefaultCollection(IShipConfigeration light)
+        private static void CreateFighterLightDefaultCollection(IShipConfiguration light)
         {
             //Add multiple lasers
             for (int i = 0; i < 10; i++)
@@ -258,7 +258,7 @@ namespace StarCommander.Factories
             light.upgradeImplements.Add(UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.WarpDrive));
         }
 
-        private static void CreateHeavyDefaultCollection(IShipConfigeration heavy, Nullable<ShipType> shipType)
+        private static void CreateHeavyDefaultCollection(IShipConfiguration heavy, Nullable<ShipType> shipType)
         {
             switch (shipType)
             {
@@ -276,7 +276,7 @@ namespace StarCommander.Factories
             }
         }
 
-        private static void CreateDestoyerHeavyDefaultCollection(IShipConfigeration heavy)
+        private static void CreateDestoyerHeavyDefaultCollection(IShipConfiguration heavy)
         {
             //Add multiple lasers
             for (int i = 0; i < 22; i++)
@@ -318,7 +318,7 @@ namespace StarCommander.Factories
             heavy.upgradeImplements.Add(UpgradeImplementFactory.CreateUpgradeImplement(UpgradeImplementType.MineField));
         }
 
-        private static void CreateFrigetHeavyDefaultCollection(IShipConfigeration heavy)
+        private static void CreateFrigetHeavyDefaultCollection(IShipConfiguration heavy)
         {
             //Add multiple lasers
             for (int i = 0; i < 8; i++)
@@ -350,7 +350,7 @@ namespace StarCommander.Factories
 
         }
 
-        private static void CreateFighterHeavyDefaultCollection(IShipConfigeration heavy)
+        private static void CreateFighterHeavyDefaultCollection(IShipConfiguration heavy)
         {
             //Add multiple lasers
             for (int i = 0; i < 2; i++)
