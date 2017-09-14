@@ -33,10 +33,6 @@ namespace StarCommander.Ships
         List<IAttackImplement> availableAttackImplements { get; }
         bool HasFiredThisLoop { get; set; }
         void Attack(IFleet enemyFleet, BattleStratageyType battleStratageyType);
-        void Advance();
-        void Retreat();
-        void Deffend();
-        //void TakeDamage(AttackResult result);
         void ReportDistruction();
         
     }

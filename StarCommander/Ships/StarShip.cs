@@ -64,9 +64,13 @@ namespace StarCommander.Ships
 
         public void TakeDamage(AttackResult result)
         {
-            result.Damage = DamageArmor(result.Damage);
-            DamageHealth(result.Damage);
+            DamageShip(result);
             CheckHealth();
+        }
+
+        private void DamageShip(AttackResult result)
+        {
+            DamageHealth(DamageArmor(result.Damage));
         }
 
         public List<IAttackImplement> availableAttackImplements
@@ -99,34 +103,56 @@ namespace StarCommander.Ships
         {
             if (Health > 0 && damageAmount > 0)
             {
-                if (Health > damageAmount)
-                {
-                    Health = Health - damageAmount;
-                }
-                else
-                {
-                    Health = 0;
-                }
+                ApplyHealthDamage(damageAmount);
             }
+        }
+
+        private void ApplyHealthDamage(int damageAmount)
+        {
+            if (IsHealthGreaterThanDamageAmmount(damageAmount))
+            {
+                Health = Health - damageAmount;
+            }
+            else
+            {
+                Health = 0;
+            }
+        }
+
+        private bool IsHealthGreaterThanDamageAmmount(int damageAmount)
+        {
+            return Health > damageAmount;
         }
 
         private int DamageArmor(int damageAmount)
         {
             if (Armor > 0)
             {
-                if (Armor > damageAmount)
-                {
-                    Armor = Armor - damageAmount;
-                    damageAmount = 0;
-                }
-                else
-                {
-                    damageAmount = damageAmount - Armor;
-                    Armor = 0;
-                }
+                damageAmount = ApplyArmorDamage(damageAmount);
             }
 
             return damageAmount;
+        }
+
+        private int ApplyArmorDamage(int damageAmount)
+        {
+            if (IsArmorGreaterThanDamageAmmount(damageAmount))
+            {
+                Armor = Armor - damageAmount;
+                damageAmount = 0;
+            }
+            else
+            {
+                damageAmount = damageAmount - Armor;
+                Armor = 0;
+            }
+
+            return damageAmount;
+        }
+
+        private bool IsArmorGreaterThanDamageAmmount(int damageAmount)
+        {
+            return Armor > damageAmount;
         }
 
         private void CheckHealth()
@@ -140,21 +166,6 @@ namespace StarCommander.Ships
         public void ReportDistruction()
         {
             BattleResults.Messages.Add("The " + this.Name + " " + this.myShipType + " was destroyed!");
-        }
-
-        public void Advance()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Retreat()
-        {
-            throw new NotImplementedException();
-        }
-        
-        public void Deffend()
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -59,7 +59,7 @@ namespace StarCommander.AttackImplement.Tests
             IAttackImplement attackImplement = AttackImplementFactory.CreateAttackImplement(AttackImplementType.Laser);
 
             //Has A random miss rate
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 attackImplement.Fire(fleet, BattleStratageyType.WeekShipsFirst);
             }

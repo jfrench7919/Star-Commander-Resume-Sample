@@ -55,25 +55,38 @@ namespace StarCommander.BattleFields
 
         private IFleet GetFirstFleetsEnemy(IFleet myFleet)
         {
-            var availableFleets = Fleets.Where(x => x != myFleet && x.WorkingStarShips.Count() > 0).ToList();
+            List<IFleet> availableFleets = GetFleetsThatAreNotMe(myFleet);
             var index = rnd.Next(availableFleets.Count());
             return availableFleets[index];
         }
-        
+
+        private List<IFleet> GetFleetsThatAreNotMe(IFleet myFleet)
+        {
+            return WorkingFleets.Where(x => x != myFleet).ToList();
+        }
+
         private IFleet GetFleetWithTurnLeft()
         {
-            int minRounds = Fleets.Where(x => x.WorkingStarShips.Count() > 0).Min(n => n.NumberOfRoundsCompleted);
+            List<IFleet> availableFleets = GetWorkingFleetsByRound(GetLowestNumberOfRoundsCompleted());
 
-            var availableFleets = Fleets.Where(x => x.WorkingStarShips.Count() > 0 && x.NumberOfRoundsCompleted == minRounds).ToList();
-            
             var index = rnd.Next(availableFleets.Count());
-            
+
             return availableFleets[index];
+        }
+
+        private List<IFleet> GetWorkingFleetsByRound(int lowestRound)
+        {
+            return WorkingFleets.Where(x => x.NumberOfRoundsCompleted == lowestRound).ToList();
+        }
+
+        private int GetLowestNumberOfRoundsCompleted()
+        {
+            return WorkingFleets.Min(x => x.NumberOfRoundsCompleted);
         }
 
         public bool CheckForVictory()
         {
-            if (Fleets.Where(x => x.WorkingStarShips.Count() > 0).Count() == 1)
+            if (WorkingFleets.Count() == 1)
             {
                 ReportBattleWon();
                 return true;
